@@ -327,7 +327,9 @@ p {
 	</div>
 	
 	
-	<form action="${root }/member/join" method="post" class="signupform" id="form" name="form">		
+	<form method="post" action="${root }/member/register">
+		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
+		<input type="hidden" name="auth" value="ROLE_MEMBER"/>
 			<div class="field">
 			
 		<section class="id_pw-form">

@@ -14,14 +14,14 @@
         display: grid;
         grid-gap: 15px;
         height: 100%;
-        grid-template-columns: 300px 300px 300px 300px ;
+        grid-template-columns: 1fr 300px 300px 300px 300px 1fr;
         grid-template-rows:  200px 50px 80px 150px 200px 200px;
-        grid-template-areas: 'header header header header'
-                             'nav nav nav nav'
-                             'today today today today'
-                             'coner weekday SNS every'
-                             'list weekday listener every'
-                             'list radio empty2 empty1'                            
+        grid-template-areas: 'empty3 header header header header empty4'
+                             'empty3 nav nav nav nav empty4'
+                             'empty3 today today today today empty4'
+                             'empty3 corner weekday SNS every empty4'
+                             'empty3 list weekday listener every empty4'
+                             'empty3 list radio empty2 empty1 empty4                            
    }
    .wrapper div{
         border-radius: 5px 5px;      
@@ -89,7 +89,7 @@
        
        cursor: pointer;
    }
-   .nav .nav-flex {
+   .nav .nav-flex { 
        display: flex;
        padding-left: 30px;
        padding-right: 30px;

@@ -18,7 +18,7 @@
 	
 	$(document).ready(function() {
 		
-		var actionForm = $("#actionForm");
+		var actionForm = $("#actionForm2");
 		
 		$("#list a").click(function(e){
 			e.preventDefault();
@@ -94,7 +94,7 @@
 					</li>
 				</ul>
 				
-				<form id="actionForm" action="${root }/board/list">
+				<form id="actionForm2" action="${root }/board/list">
 					<input type="hidden" name="day" value="1">
 					<input type="submit" hidden />
 				</form>	

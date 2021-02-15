@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.radio.domain.BoardVO;
 import com.radio.domain.Board_Criteria;
+import com.radio.domain.Board_PageDTO;
 import com.radio.mapper.BoardMapper;
 
 import lombok.AllArgsConstructor;
@@ -73,12 +74,18 @@ public class BoardServiceImpl implements BoardService{
 	
 	
 	
-	
+	 
 	//게시물 삭제
 	@Override
 	public boolean delete(Long board_bno) {
 		
 		return mapper.delete(board_bno) == 1;
+	}
+
+	@Override
+	public int getTotal(Board_PageDTO board_Criteria) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

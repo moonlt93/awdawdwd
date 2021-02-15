@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <!DOCTYPE html>
 <html>
@@ -26,19 +27,18 @@
 	background-size: cover; 
 	}
 	
-   .wrapper{      
-        margin: 0 10% 0 10%;
+   .wrapper{              
         display: grid;
         grid-gap: 15px;
         height: 100%;
-        grid-template-columns: 300px 300px 300px 300px ;
+        grid-template-columns: 1fr 300px 300px 300px 300px 1fr ;
         grid-template-rows:  200px 50px 80px 150px 200px 200px;
-        grid-template-areas: 'header header header header'
-                             'nav nav nav nav'
-                             'today today today today'
-                             'corner weekday SNS every'
-                             'list weekday listener every'
-                             'list radio empty2 empty1'                            
+        grid-template-areas: 'empty3 header header header header empty4'
+                             'empty3 nav nav nav nav empty4'
+                             'empty3 today today today today empty4'
+                             'empty3 corner weekday SNS every empty4'
+                             'empty3 list weekday listener every empty4'
+                             'empty3 list radio empty2 empty1 empty4'                            
    }
    .wrapper div{
         border-radius: 5px 5px;      
@@ -196,8 +196,21 @@
 <body>  
     <div class="header2">
         <nav class="header-nav">
-            <a href="">회원가입</a>
-            <button class="header-button" type="button">로그인</button> 
+            <a href="${root }/member/register">회원가입</a>
+          <sec:authorize access="isAnonymous()">
+		      <li class="nav-item">
+		        <a class="nav-link" href="/customLogin">로그인</a>
+		      </li>
+	      </sec:authorize>
+	      
+	      <sec:authorize access="isAuthenticated()">
+		      <li class="nav-item">
+	      	<form action="/logout" method="post">
+		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+		        <button type="submit" class="btn btn-outline-dark btn-sm">로그아웃</button>
+	      	</form>
+		      </li>
+	      </sec:authorize>
         </nav>
     </div>
     <div class="wrapper">  
@@ -243,7 +256,10 @@
 
         <div class="every">
             <strong class="title1">홍보</strong>
-        </div>   
+        </div>  
+        
+        <div class="empty3">empty3</div>
+        <div class="empty4">empty4</div> 
        
     </div>   
     

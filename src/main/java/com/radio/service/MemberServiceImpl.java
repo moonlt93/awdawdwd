@@ -3,6 +3,7 @@ package com.radio.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.radio.domain.AuthVO;
 import com.radio.domain.MemberVO;
 import com.radio.mapper.MemberMapper;
 
@@ -14,11 +15,7 @@ public class MemberServiceImpl implements MemberService {
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 	
-	@Override
-	public void insert(MemberVO member) {
-		mapper.insertMember(member);
-	}
-	
+
 	@Override
 	public String check_email(String email) {
 		return mapper.check_email(email);
@@ -30,4 +27,16 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.check_id(id);
 		
 	}
+
+	@Override
+	public int register(MemberVO vo) {
+		return mapper.register(vo);
+	}
+
+	@Override
+	public int registerAuth(AuthVO authVo) {
+		return mapper.registerAuth(authVo);
+	}
+
+
 }

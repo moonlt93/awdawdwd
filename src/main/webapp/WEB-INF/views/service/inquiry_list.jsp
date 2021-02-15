@@ -33,7 +33,6 @@
    	   text-decoration: none;
    }
 </style>
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -49,9 +48,9 @@
             <h1><a class="moon" href="${root }">Moon's radio</a></h1>
         </div> 
 
-            <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                
-            </div>
+        <div class="nav">
+              <jsp:include page="/resources/include/main_nav.jsp" />                  
+        </div>
 
         <div class="corner">     
              <jsp:include page="/resources/include/main_corner.jsp" />  
@@ -64,12 +63,12 @@
         					
 
        <div class="main">
-       		<jsp:include page="/resources/include/mini.jsp"/>
+       		<jsp:include page="/resources/include/inquiry_list.jsp" />
        </div>
        
-        <div class="empty1">
+       <div class="empty1">
 
-        </div>
+       </div>
         
     </div>
     

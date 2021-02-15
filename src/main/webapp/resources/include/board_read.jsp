@@ -53,64 +53,118 @@
 		margin: 3%;
 		padding: 3%;
 	}
+	.board_header {
+		background-color: rgb(241, 241, 241);
+		border: rgb(241, 241, 241);	
+	}
 	
-	.input_border {
+	.input_border-content {
 		outline: none;
 		border: none;
+		height: 200px;
 	}
+	.h5message h5{
+		text-align: center;
+		color: lightslategrey; 
+		margin-bottom: 50px; 
+	}
+	
+	.header1 {
+		align-items: center;
+	}
+	.input_cnt {
+		justify-self: end;
+	}
+	.board_read {		  
+		 margin: 5px 0px 5px 0px;
+	}		
+	
+	.input_num {
+		font-size: 13px;
+		color: grey;
+		padding: 3px;
+	}
+	
+	.input_id {
+		padding: 3px;
+		font-size: 15px;
+	}
+
+	.board_content {
+		
+		margin: 20px 0px 20px 0px; 
+	}
+	
+	.h5message input {
+		outline: none;  	
+		padding: 5px;
+		background-color: snow;
+		border: none;	
+			 
+	}
+	
+	.board-button { 
+		border: solid 1px silver;		
+	} 
+	
+	.btn-list, .btn-modify, .btn-delete {
+		margin: 5px;	
+	}
+	
+	
 </style>
 <title>Insert title here</title>
 </head>
-<body>
+<body> 
 
 <div class="read-form">
 		
-			<div class="">
-				<h5>게시물 보기</h5>
+			<div class="h5message">
+				<h5><strong>게시물 보기</strong></h5>
+				<input class="input_title" readonly value='<c:out value="${boardVO.board_title}" />' 
+					type="text" class="" > 
 			</div>
+			  
 			
-			
-		<div class="">
-			
-		
-
-			<div class="">
-				<label for="input_num">번호</label>
-				<input class="input_border" type="text" id="input_num" readonly value="${boardVO.board_bno }" />
+		<div class="board_read">  	 
+			<div class="board_header"> 
+				<div class="header1"> 
+					<span class="input_num">${boardVO.board_bno }</span>
+					<span class="input_id"><i class="fa fa-user">${boardVO.board_id }</i></span>		
+					<span class="input_cnt">${boardVO.board_read_cnt }</span>			
+				</div>	
+						
 			</div>
+				<input class="input_border" type="text" readonly value="${boardVO.board_bno }" hidden/>
+				<input class="input_border" readonly value='<c:out value="${boardVO.board_id }" />' type="text"  class="" id="input_id" hidden >
+				<input class="cnt" readonly value='<c:out value="${boardVO.board_read_cnt }" />' type="text" class="" id="input_cnt" hidden >
+					    
+								  
+						  
+						 
+			<div class="board_content">
 					
-			<div class="">
-				<label for="input_title">제목</label> 
-				<input class="input_border" readonly value='<c:out value="${boardVO.board_title}" />' 
-				type="text" class="" id="input_title" >
-		   </div>
-
-			<div class="">
-					<label for="input_content">내용</label>
-					<textarea class="input_border" readonly id="input_content"
-							rows="3"><c:out value="${boardVO.board_content}" /></textarea>
-			</div>
-
-			<div class="">
-					<label for="input_id">작성자</label> <input class="input_border" readonly 
-						  value='<c:out value="${boardVO.board_id }" />' type="text"
-					class="" id="input_id" >
-			</div>
+					 
+					
+					<input class="input_border-content" readonly
+							value='<c:out value="${boardVO.board_content}" />' 
+							type="text">
+			</div>	
 				
-			<div class="">
-					<label for="input_cnt">조회수</label> <input class="input_border" readonly 
-					    value='<c:out value="${boardVO.board_read_cnt }" />' type="text"
-						class="" id="input_cnt" >
-			</div>
+					
+		
+		
+		<div class="board-button">
+			
+  				<button data-oper="list" type="button" class="btn-list">목록으로</button>
 			
 			
+  				<button data-oper="modify" type="button" class="btn-modify">수정하기</button>
+			
+			
+  				<button data-oper="delete" type="button" class="btn-delete">삭제하기</button>
 		</div>
-		
-		
-		<div class="">
-  			<button data-oper="list" type="button" class="btn btn-secondary">목록으로</button>
-  			<button data-oper="modify" type="button" class="btn btn-light">수정하기</button>
-  			<button data-oper="delete" type="button" class="btn btn-secondary">삭제하기</button>
+		 
 		</div>
 
 <div class="d-none">

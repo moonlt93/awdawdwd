@@ -5,18 +5,17 @@
     }
 
    .wrapper{      
-        margin: 0 10% 0 10%;
         display: grid;
         grid-gap: 15px;
         height: 100%;
-        grid-template-columns: 300px 300px 300px 300px ;
+        grid-template-columns: 1fr 300px 300px 300px 300px 1fr ;
         grid-template-rows:  200px 50px 150px 150px 200px ;
-        grid-template-areas: 'header header header header'
-                             'nav nav nav nav'
-                             'corner main main main'
-                             'weekday main main main'
-                             'weekday main main main'
-                             'empty1 main main main'                            
+        grid-template-areas: 'empty2 header header header header empty3'
+                             'empty2 nav nav nav nav empty3'
+                             'empty2 corner main main main empty3'
+                             'empty2 weekday main main main empty3'
+                             'empty2 weekday main main main empty3'
+                             'empty2 empty1 main main main empty3'                            
    }
    .wrapper div {
         border-radius: 5px 5px;      

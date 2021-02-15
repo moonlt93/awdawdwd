@@ -127,7 +127,7 @@ th {
 		margin-top: 16px;
 	}
 	
-	.num {
+	.numa {
 		border-radius: 3px 3px;
 		text-decoration: none;
 		border: 1px silver solid;		
@@ -160,7 +160,7 @@ th {
 		color: lightslategrey;
 	}
 	
-	.num:hover {
+	.numa:hover {
 		text-decoration: none;
 		background-color: snow;
 		color: lightslategrey;
@@ -255,7 +255,7 @@ th {
 		<c:forEach var="num" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
 			
 			<li class="numLi ${pageInfo.board_Criteria.pageNum == num ? 'active' :'' }">
-			<a class="num" href="${num }">${num }</a>
+			<a class="numa" href="${num }">${num }</a>
 			</li>
 		</c:forEach>
 		

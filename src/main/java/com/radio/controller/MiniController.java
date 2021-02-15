@@ -1,5 +1,8 @@
 package com.radio.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +24,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/mini/*")
 @AllArgsConstructor
 public class MiniController {
-	
+	 
 	private MiniService service;
 	
 	@GetMapping("/list")
@@ -38,9 +41,8 @@ public class MiniController {
 	public String register(MiniVO mini, RedirectAttributes rttr) {
 		log.info(mini);
 		service.register(mini);
-		rttr.addFlashAttribute("result", "사연전송 완료"); 
+		rttr.addFlashAttribute("result", "사연전송 완료");
 		return "redirect:/mini/list";
 	}
-	
-	
+		
 }

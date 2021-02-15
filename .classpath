@@ -37,5 +37,10 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/sts-bundle/sts-3.9.13.RELEASE/lombok.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
+	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/oraclepki.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/osdt_cert.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/osdt_core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/ucp.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
