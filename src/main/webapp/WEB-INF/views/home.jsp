@@ -9,13 +9,13 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">	
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
 	*{	
 	 	margin: 0; 
@@ -195,24 +195,9 @@
 </head>
 <body>  
     <div class="header2">
-        <nav class="header-nav">
-            <a href="${root }/member/register">회원가입</a>
-          <sec:authorize access="isAnonymous()">
-		      <li class="nav-item">
-		        <a class="nav-link" href="/customLogin">로그인</a>
-		      </li>
-	      </sec:authorize>
-	      
-	      <sec:authorize access="isAuthenticated()">
-		      <li class="nav-item">
-	      	<form action="/logout" method="post">
-		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		        <button type="submit" class="btn btn-outline-dark btn-sm">로그아웃</button>
-	      	</form>
-		      </li>
-	      </sec:authorize>
-        </nav>
+      	 <jsp:include page="/resources/include/main_header.jsp" /> 
     </div>
+    
     <div class="wrapper">  
 
         <div class="header">
@@ -248,7 +233,8 @@
         </div>
 
         <div class="SNS">
-            <strong class="title1">sns</strong>
+            <strong class="title1">고객센터</strong>
+            <a href="${root }/service/register">고객센터</a>
         </div>
 
         <div class="empty1">empty</div>

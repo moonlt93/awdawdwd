@@ -10,13 +10,13 @@
 <link rel="stylesheet" href="${root }/resources/css/form.css">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
 	 body {
 	background-image: url("../resources/pic/background.jpg");
@@ -253,7 +253,7 @@ $(document).ready(function(){
 		<div class="search-form">
 			 <form action="${root }/mini/list" id="searchForm" class="form-inline my-2 my-lg-0">
 			     <select name="type" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-				    <option value="W" ${cri.type eq 'W' ? 'selected' : ''} >아이디</option>
+				    <option value="W" ${cri.type eq 'W' ? 'selected' : ''}>아이디</option>
 				    <option value="C" ${cri.type eq 'C' ? 'selected' : '' }>사연</option>
 				    <option value="WC" ${cri.type eq 'WC' ? 'selected' : '' }>전체</option>
 				  </select>

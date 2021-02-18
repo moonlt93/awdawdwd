@@ -9,17 +9,19 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">	
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${root }/resources/js/joincheck.js"></script>
 <script src="${root }/resources/js/address.js"></script>
+<script type="text/javascript">
+</script>
 <script>
 $(document).ready(function() { 	
 	$("#id").blur(function() {
@@ -327,7 +329,7 @@ p {
 	</div>
 	
 	
-	<form method="post" action="${root }/member/register">
+	<form id="join_form" method="post">
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
 		<input type="hidden" name="auth" value="ROLE_MEMBER"/>
 			<div class="field">

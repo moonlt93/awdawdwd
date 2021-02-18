@@ -3,6 +3,7 @@ package com.radio.controller;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	
 	private MemberService service;
+	private PasswordEncoder pwencoder;
 	
 	// 회원가입 화면
 	@GetMapping("/register")
@@ -39,7 +41,8 @@ public class MemberController {
 		 
 		// log에 member데이터가 잘 찍히는지 확인
 		log.info("member:" + vo);
-		
+		String bfPw = vo.getPassword();
+		vo.setPassword(pwencoder.encode(bfPw));
 		service.register(vo);
 		service.registerAuth(authVo);
 		// grade MemberVO에 잘 담겨있는지 확인
