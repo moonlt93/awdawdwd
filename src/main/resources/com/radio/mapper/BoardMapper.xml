@@ -29,11 +29,28 @@
  	<!-- 공지글 제외 게시물 얻어오기(요일별) -->
  	<select id="getList" resultType="com.radio.domain.BoardVO">
  		<![CDATA[
- 		SELECT rn, board_bno, board_title, board_content, board_id, board_regdate, board_updatedate, board_pin, board_read_cnt, board_day
+ 		SELECT rn, 
+ 		board_bno, 
+ 		board_title, 
+ 		board_content, 
+ 		board_id, 
+ 		board_regdate, 
+ 		board_updatedate, 
+ 		board_pin, 
+ 		board_read_cnt, 
+ 		board_day
  		FROM
 		(
 		SELECT ROW_NUMBER() OVER(ORDER BY board_pin DESC, board_bno DESC) rn,
-		board_bno, board_title, board_content, board_id, board_regdate, board_updatedate, board_pin, board_read_cnt, board_day
+		board_bno, 
+		board_title, 
+		board_content,
+		board_id, 
+		board_regdate, 
+		board_updatedate, 
+		board_pin, 
+		board_read_cnt, 
+		board_day
 		FROM tbl_board  		
  		]]>
  		<trim suffix=" AND board_day= #{day} OR board_pin=1">

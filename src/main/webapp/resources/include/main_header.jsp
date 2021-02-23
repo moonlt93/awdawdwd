@@ -16,21 +16,26 @@
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+<style type="text/css">
+	.login_button {
+		color: pink;
+		
+	}
+</style>
 </head>
 <body>
-	  <div class="header-nav">
-            <a href="${root }/member/register">회원가입</a>
+	  <div class="">
           <sec:authorize access="isAnonymous()">
-		      <li class="nav-item">
-		        <a class="nav-link" href="/customLogin">로그인</a>
+		      <li class="">
+		        <a class="login_button" href="/customLogin">로그인</a>
 		      </li>
 	      </sec:authorize>
 	      
 	      <sec:authorize access="isAuthenticated()">
-		      <li class="nav-item">
+		      <li class="">
 	      	<form action="/logout" method="post">
 		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		        <button type="submit" class="btn btn-outline-dark btn-sm">로그아웃</button>
+		        <button type="submit" class="logout_button">로그아웃</button>
 	      	</form>
 		      </li>
 	      </sec:authorize>

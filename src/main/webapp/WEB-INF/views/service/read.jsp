@@ -8,14 +8,15 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	  
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	 
+<link href="${root }/resources/css/all.min.css" rel="stylesheet"> 
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+ 
 <style type="text/css">
 	 body {
 	background-image: url("../resources/pic/background.jpg");
@@ -34,7 +35,7 @@
         height: 100%;
         grid-template-columns: 1fr 300px 300px 300px 300px 1fr ;
         grid-template-rows:  200px 50px 1fr 1fr 1fr 1fr ;
-        grid-template-areas: 'empty2 header header header header empty3'
+        grid-template-areas: 'empty2 header header header header empty3' 
                              'empty2 nav nav nav nav empty3'
                              'empty2 main main main main empty3'
                              'empty2 main main main main empty3'
@@ -144,9 +145,7 @@
 <body>
 
 <div class="header2">
-        <nav class="header-nav">
-            <jsp:include page="/resources/include/main_header.jsp" /> 
-        </nav>
+        <jsp:include page="/resources/include/main_header.jsp" /> 
     </div>
     <div class="wrapper">  
 
@@ -159,7 +158,7 @@
         </div>
         				
        <div class="main">
-       		<jsp:include page="/resources/include/center_register.jsp" />
+       		<jsp:include page="/resources/include/center_read.jsp" />
        </div>
        
        <div class="empty1">

@@ -40,7 +40,7 @@
 
 <div class="header2">
         <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
+            <jsp:include page="/resources/include/main_header.jsp" /> 
         </nav>
     </div>
     <div class="wrapper">  

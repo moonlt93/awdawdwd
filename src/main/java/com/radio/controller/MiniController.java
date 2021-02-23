@@ -1,7 +1,5 @@
 package com.radio.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +32,7 @@ public class MiniController {
 		
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("pageMaker", dto);
-		log.info("list");
+		log.info(service.getListWithPaging(cri));
 	}
 	
 	@PostMapping("/register")

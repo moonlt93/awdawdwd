@@ -151,7 +151,7 @@
    .header2 .header-nav{
        display: flex;
        background-color: black;
-       height: 40px;
+       height: 80px;
        justify-content: flex-end;
    }
 
@@ -189,6 +189,11 @@
    .week {
        background-color: black;
        color: white;
+   }
+   
+   .main_inquiry {
+   		text-decoration: none;
+   		color: grey;
    }
 
 </style>
@@ -234,7 +239,16 @@
 
         <div class="SNS">
             <strong class="title1">고객센터</strong>
-            <a href="${root }/service/register">고객센터</a>
+    			
+    		
+    			
+    			<sec:authorize access="permitAll">
+ 	           		<a class="main_inquiry" href="${root }/service/member">고객센터</a>
+            	</sec:authorize>
+            	
+            	<sec:authorize access="hasRole('ROLE_ADMIN')">
+            		<a class="main_inquiry" href="${root }/service/admin">관리자 고객센터</a>
+            	</sec:authorize>
         </div>
 
         <div class="empty1">empty</div>

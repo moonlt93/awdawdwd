@@ -151,258 +151,110 @@ $(document).ready(function() {
 });
 </script>
 <style type="text/css">
-*{
-	margin: 0;
-	padding: 0;	
-}
-
 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: cover;
-}
-.wapper { 
-	width: 100%;
-	background-image: url(../resources/pic/crescent-4875339_1920.jpg);
-	background-size: contain;
-	background: #E9E9E9;
-}
-	.wapper #headerMember {
-		width: 100%;
-		border-bottom: 2px solid #D8D8D8;
-		background: #fff;
-	}
-		.wrapper #headerMember .header {
-			padding: 19px 0 16px;
-			margin: 0 auto;
-			text-aling: center;
-		}
-			.wrapper #headerMember .header h2 {
-                text-align: center;                
-                background-size: cover;                                
-                vertical-align: top;
-            }
-
-#headerMember {
-	background: white;
+	background-color: lightslategrey;
 }
 
+.wrapper_join {
+	padding: 10%;
+}  
 
-
-
-#memberContent {
-	background: white;
-}
-.container {
-	width: 1000px;
-	padding: 6em 6.154em;
-	margin: 3em auto 6.154em;
-	
-}       
-
-.container .tip-top {
-	padding-bottom: 10px;
-	margin-bottom: 3.85em;
-	border-bottom: 1px solid #d2d2d2;
-}     
-
-
-.field {
-	width: 100%;
-	position: relative;
+.join_content {
 	background-color: white;
-	border-radius: 20px 20px;
-	border: 1px solid #AAAAAA;
-	padding: 10px 60px 10px 60px;
-	
-} 
-
-.id_pw-form {
-	height: 200px;
-	margin-top: 30px;
-} 
-
-.password-form, .info-form{
-	display: flex; 
-	justify-content: space-around;
-	flex-wrap: wrap;
-	position: relative;
 }
 
-.id-form {
-	display: flex;
-	justify-content: flex-start space-around;
-	margin-bottom: 8px;  
-	position: relative;
+.header h1 { 
+	text-align: center;
+	color: thistle;
 }
 
-.info-form {
-	height: 150px;
+.header {
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
-.post {
-	display: flex;
-	align-items: baseline;	 
-}
 
-.post2{
-	display: flex;
-	align-items: baseline;
-}
-
-input {
-	width: 250px;
-	flex-wrap: wrap;
-	border: 1px solid silver; 
-	outline: none;
-	background: none;
-	position: relative;
-	font-size: 14px;
-	border-radius: 5px 5px;
-	
-}
-
-small {
-	color: red;
-	font-size: 10px;
-	position: absolute;
-}
-
-label {
-	font-size: 13px;
-	color: black;
-}
-
-p {
-	background: lightblue;
-}
-.postCode {
-	background: white;
-	border: 1px solid silver;
-	font-size: 14px;
-	border-radius: 2px;
-	color: gray;
-	margin-left: 10px;
-	margin-top: 2px; 
-	outline: none;
-}
-
-.postCode:hover {
-	background: silver;
-	color: white;
-}
- 
-#insertCustomer {
-	background: none;
-	color: #70a1ff;
-	border: 1px solid #70a1ff;
-	padding: 12px 30px;
-	border-radius: 8px;
-	font-size: 14px;
-	transition: 0.2s linear;
-	margin-top: 20px;
-	width: 100%;
-	outline: none;
-}
-
-#insertCustomer:hover {
-	background: #70a1ff;
-	color: #fff;
-}
-</style>
+</style> 
 <title>Insert title here</title>
 </head>
 <body>
 
-<div id="wrap" class="wrapper join">
-	<header id="headerMember">
 		<div class="header">
-			<h2>MOON</h2>
+			<h1><a href="${root }/">진수성찬</a></h1>  
 		</div>
-		</header>
+	
 
-<div id="memberContent" class="container">
-	<div class="tip-top">
-	<h3 class="title">회원가입</h3>
-	<div class="item-box1 v1 top-txt-sub">
+<div class="wrapper_join">
 	
-	</div>
-	</div>
-	
+	<div class="join_content">
+		<div class="join_header">
+			<h3>회원가입</h3>
+		</div>
 	
 	<form id="join_form" method="post">
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
 		<input type="hidden" name="auth" value="ROLE_MEMBER"/>
-			<div class="field">
 			
-		<section class="id_pw-form">
+				<div class="id_pw_field">	
+				
+						<div class="id-form">						
+							<div class="input_field">		
+								<label><i class="fa fa-user"></i>아이디<br>
+								<input type="text" class="input_id" name="id" id="id"> 
+								</label>							
+								<small class="check_font" id="id_check"></small> 			 							
+							</div>			 			
+						</div>
+															
+						<div class="password-form">			
+							<div class="input_field">
+								<label><i class="fa fa-unlock-alt"></i>비밀번호<br>
+								<input type="password" class="password" name="password" id="password">
+								<small class="check_font" id="password_check"></small>					
+								</label>
+							</div>
+						</div>
+				
+						<div class="form-group">
+							<div class="input_field">
+								<label><i class="fa fa-unlock-alt"></i>비밀번호 확인<br>
+								<input type="password" class="confirmPassword" id="confirmPassword">
+								</label>
+								<small class="check_font" id="confirm_check"></small>													
+							</div>
+						</div>	
+							
+				</div>
 		
-			<div class="id-form">
-			
-				<div class="form-group">
-					<div class="input_field">		
-						<label><i class="fa fa-user"></i>아이디<br>
-						<input type="text" class="id" name="id" id="id"> 
-						</label>					
-					</div>
-						<small class="check_font" id="id_check"></small> 
-				</div>
-			
-			</div>
-												
 				
-			<div class="password-form">
-				<div class="form-group">
-					<div class="input_field">
-						<label><i class="fa fa-unlock-alt"></i>비밀번호<br>
-							<input type="password" class="password" name="password" id="password"> <br>
-							<small class="check_font" id="password_check"></small>					
-						</label>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<div class="input_field">
-						<label><i class="fa fa-unlock-alt"></i>비밀번호 확인<br>
-						<input type="password" class="confirmPassword" id="confirmPassword">
-						</label> <br>
-						<small class="check_font" id="confirm_check"></small>													
-					</div>
-				</div>		
-			</div>
-		</section>	
-				
-		<section>
-			<div class="info-form">
-				<div class="form-group ">
-					<div class="input_field"> 
-						<label><i class="fa fa-user"></i>이름<br>
-						<input type="text"class="name" name="name" id="name">
-						</label>
-					</div>
-						<small class="check_font" id="name_check"></small>						
-				</div>
-				
-				<div class="form-group">
-					<div class="input_field">
-						<label><i class="fa fa-share" aria-hidden="true"></i>이메일<br>
-						<input type="text" class="email" name="email" id="email">
-						</label>
-					</div>
-						<small class="check_font" id="email_check"></small>				
-				</div>
-			</div>
-		</section>
 		
+				<div class="info-form">
+								
+						<div class="input_field"> 
+							<label><i class="fa fa-user"></i>이름<br>
+							<input type="text"class="name" name="name" id="name">
+							</label>
+							<small class="check_font" id="name_check"></small>						
+						</div>
+							
+						<div class="input_field">
+							<label><i class="fa fa-share" aria-hidden="true"></i>이메일<br>
+							<input type="text" class="email" name="email" id="email">
+							</label>
+							<small class="check_font" id="email_check"></small>				
+						</div>
+				</div>
+				
 		<p>*<strong>주소정보</strong>는<strong>선택</strong>입력 정보이며<strong>방청 및 방송참여, 경품 이벤트</strong>시 필요합니다.</p>
 				
-		<section>				
+				
 			<div class="post">
 				<div class="form-group">
 					<div class="input_field">
 						<label>우편 번호<br>
 						<input type="text" class="add1" name="add1" id="sample6_postcode"
 							 readonly style="width:100px; text-align:center"> 
-						</label>
+						</label> 
 					</div>				
 						<small class="check_font" id="add1_check"></small>
 					</div>
@@ -428,7 +280,7 @@ p {
 						</label>
 					</div>
 						<small class="check_font" id="add2_check"></small>
-				</div>
+				</div> 
 						
 				<div class="form-group"> 
 					<div class="input_field"> 
@@ -451,20 +303,21 @@ p {
 						<small class="check_font" id="add3_check"></small>
 				</div>
 					
-		</section>																					
-		</div>			 
+																						
 			
 		<button id="insertCustomer" type="button" onclick="checkAll()" value="회원가입">회원가입</button>
 				
 	</form> 		 
 	</div>
-</div>
+</div>			 
+	
 
-<input type="text" id="signUpIdCheck" name="signUpIdCheck" >
-<input type="text" id="signUpPwCheck" name="signUpPwCheck" >
-<input type="text" id="signUpRePwCheck" name="signUpRePwCheck" >
-<input type="text" id="signUpNameCheck" name="signUpNameCheck" >
-<input type="text" id="signUpEmailCheck" name="signUpEmailCheck" >
+
+<input hidden type="text" id="signUpIdCheck" name="signUpIdCheck" >
+<input hidden type="text" id="signUpPwCheck" name="signUpPwCheck" >
+<input hidden type="text" id="signUpRePwCheck" name="signUpRePwCheck" >
+<input hidden type="text" id="signUpNameCheck" name="signUpNameCheck" >
+<input hidden type="text" id="signUpEmailCheck" name="signUpEmailCheck" >
 
 </body>
 </html>

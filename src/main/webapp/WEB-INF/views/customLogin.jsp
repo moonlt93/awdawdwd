@@ -14,13 +14,49 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-.container-sm {
-width: 600px;
-
-}
+	body {
+		background-color: lightslategrey;
+	}
+	
+	.login_header h1 {
+		text-align: center;
+		color: thistle; 
+		margin: 3%;
+	}
+	.login_wrapper {
+		border: 0;
+		padding: 10%;
+		margin: 10%;
+		background-color: white;
+	}
+	
+	.sub_wrapper {
+		padding: 100px;
+		border: 2px solid silver;
+		border-radius: 5px 5px;
+		
+	}
+	
+	.login_button {
+		background-color: thistle; 
+		color: white;
+		border: none;		
+	}
+	
+	.login_button:hover {
+		color:lightslategrey;
+	}
 </style>
 </head>
-	<div class="container-sm mt-5">
+
+	<div class="login_header">
+		<h1>진수성찬</h1>
+	</div>
+<div class="login_wrapper"> 
+
+
+	<div class="sub_wrapper">
+	<div class="error_message">
 	
 		<h1>로그인</h1>
 		<h5><c:out value="${error }"/></h5>
@@ -29,22 +65,26 @@ width: 600px;
 	</div>
 
 		
-		<div class="container-sm mt-5">
+		<div class="login_form">
 		
 			<form action="/login" method="post">
-				<div class="form-group">
+				<div class="id_input">
 					아이디 <input type="text" name="username" class="form-control" id="exampleInputEmail1">
 				</div>
-				<div class="form-group">
+				<div class="pw_input">
 					비밀번호 <input type="password" name="password" class="form-control" />
 				</div>
 				<div>
-					<input type="checkbox" name="remember-me"> 자동 로그인
+					<input type="checkbox" name="remember-me"> 자동 로그인 
 				</div>
 				
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
-				<button id="loginBtn" type="submit">로그인</button>
+				<button class="login_button" id="loginBtn" type="submit">로그인</button>
 			</form>
+			
+			<a href="${root }/member/register" style="float: right; color:black;">회원가입</a>
 		</div>
+	</div>
+</div>
 	
 </html>

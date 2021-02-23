@@ -15,7 +15,7 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+ 
 <style type="text/css">
 	 body {
 	background-image: url("../resources/pic/background.jpg");
@@ -144,9 +144,7 @@
 <body>
 
 <div class="header2">
-        <nav class="header-nav">
-            <jsp:include page="/resources/include/main_header.jsp" /> 
-        </nav>
+        <jsp:include page="/resources/include/main_header.jsp" /> 
     </div>
     <div class="wrapper">  
 
@@ -159,7 +157,7 @@
         </div>
         				
        <div class="main">
-       		<jsp:include page="/resources/include/center_register.jsp" />
+       		<jsp:include page="/resources/include/center_list.jsp" />
        </div>
        
        <div class="empty1">
