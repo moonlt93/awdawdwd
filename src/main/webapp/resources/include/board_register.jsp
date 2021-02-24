@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +12,13 @@ var root = '${root}';
 <meta charset="UTF-8">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(e){
@@ -35,7 +35,7 @@ var root = '${root}';
 		$("button[data-oper='cancel']").click(function(e){
 			
 			registerForm.attr("method", "get");
-			registerForm.attr("action", root + "/board/list")
+			registerForm.attr("action", root + "/board/list");
 			registerForm.submit();
 		});
 		
@@ -72,7 +72,7 @@ var root = '${root}';
 					
 					<div class="form-group">
 						<label for="input2">작성자</label> 
-						<input name="board_id" type="text" class="form-control"  >
+						<input readonly name="board_id" type="text" class="form-control" value="<sec:authentication property='principal.username'/>"  >
 					</div>
 					<input type="hidden" name="board_day" value="${board_Criteria.day }">
 					<input type="hidden" name="pageNum" value="${board_Criteria.pageNum }">
@@ -80,7 +80,7 @@ var root = '${root}';
 					<input type="hidden" name="type" value="${board_Criteria.type }">
 					<input type="hidden" name="keyword" value="${board_Criteria.keyword }">
 					<input type="hidden" name="day" value="${board_Criteria.day }">
-					
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					
 					<input type="submit" />
 					
@@ -94,7 +94,7 @@ var root = '${root}';
 			</div>
 			
 			
-		<div class="btn-group btn-group-lg">
+		<div class="btn-group">
 	  		<button data-oper="register" type="button" class="btn btn-secondary">작성하기</button>
 	  		<button data-oper="cancel" type="button" class="btn btn-light">취소</button>
 		</div>

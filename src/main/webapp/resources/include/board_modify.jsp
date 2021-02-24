@@ -11,13 +11,13 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet">  
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(e){
@@ -25,7 +25,10 @@
 		var modifyForm = $("#modifyForm");
 		
 		$("button[data-oper='modify']").click(function(e){
-			
+			if(!modifyForm.find("[name='board_title']").val()){
+				alert("제목을 입력하세요");
+				return false;
+			}
 			
 			modifyForm.submit();
 		});
@@ -83,7 +86,7 @@
 					<input type="hidden" name="type" value="${board_Criteria.type }">
 					<input type="hidden" name="keyword" value="${board_Criteria.keyword }">
 					<input type="hidden" name="day" value="${board_Criteria.day }">
-					
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					
 					<input type="submit" />
 					

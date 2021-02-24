@@ -2,8 +2,8 @@ package com.radio.mapper;
 
 import java.util.List;
 
+
 import com.radio.domain.CenterVO;
-import com.radio.domain.Center_comVO;
 import com.radio.domain.Criteria;
 
 

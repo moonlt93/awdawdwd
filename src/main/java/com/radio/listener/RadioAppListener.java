@@ -37,6 +37,14 @@ public class RadioAppListener implements ServletContextListener {
         
         app.setAttribute("root", contextRoot);
         
+        //재민 버킷경로
+        String staticPath = "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cnwcb0ooelq8/b/bucket-20210218-2349/o/"; 
+        app.setAttribute("staticPath", staticPath);      
+        // 진수 버킷 경로
+        app.setAttribute("ReplayStaticPath", "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cnca7kbvyqaq/b/bucket-20210216-1417/o/");
+        // 유정 버킷 경로
+        app.setAttribute("picRoomStaticPath", "https://objectstorage.ap-seoul-1.oraclecloud.com/n/cndwlmgtk97g/b/bucket-20210217-1820/o/");
+        
     }
 	
 }

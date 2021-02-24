@@ -2,6 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,13 +11,13 @@
 <link rel="stylesheet" href="${root }/resources/css/form.css">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
 	 body {
 	background-image: url("../resources/pic/background.jpg");
@@ -49,7 +50,7 @@
 		outline: none;	
 		margin-bottom: 5px;
 		margin-right: 10px;
-		width: 100px;
+		width: 120px;
 	}
 	.input-content {
 		border: 1px solid white;
@@ -154,6 +155,12 @@ $(document).ready(function(){
 		
 		actionForm.submit();
 	});
+	
+	var result = '<c:out value="${result}"/>';
+	
+	if(result) {
+		alert(result);
+	}
 });
 </script>
 </head>
@@ -163,16 +170,28 @@ $(document).ready(function(){
 	
 		<div class="input-message" style="margin-bottom: 5px;">
 		
-			<form action="${root }/mini/register" class="form-tag" method="post"> 
+			<form action="${root }/mini/register" class="form-tag" method="post">
+				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/> 
 					<h5 class="h5message"><i style="color: snow;" class="far fa-envelope"></i> mini 메세지 보내기</h5>
 				<div class="input-form" style="display: flex; justify-content: center;">
 				
+				
+				<sec:authorize access="isAuthenticated()">
 				  <div class="inp">
-				    <input name="writer" type="text" class="input-writer" id="inputWriter" placeholder="아이디">
+				    <input name="writer" type="text" class="input-writer" id="inputWriter" 
+				    value='<sec:authentication property="principal.username"/>' readonly>
 				  </div>
-
+				</sec:authorize>
+				  
+				<sec:authorize access="isAnonymous()">	
+				  <div class="inp">
+				    <input name="writer" type="text" class="input-writer" id="inputWriter" placeholder="아이디" readonly>
+				  </div>
+				</sec:authorize>
+				
+				
 				  <div class="inp">				   
-				    <input name="content" type="text" class="input-content" id="inputContent" placeholder="오늘은 어떤 일이 있었나요?">
+				    <input name="content" type="text" class="input-content" id="inputContent" placeholder="오늘은 어떤 하루를 보냈나요?">
 				  </div>
 				  
 				  <div class="inp">
@@ -199,8 +218,16 @@ $(document).ready(function(){
 				     		<td><strong><c:out value="${mini.writer }"/></strong></td>
 				     		<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value= "${mini.regdate }"/></td>
 				 		</tr>
-				 		<tr style="border-bottom: 2px white solid;">
+				 		<tr style="display: flex; justify-content: space-between; padding: 3px 10px 3px 10px; border-bottom: 2px white solid;" >
 				     		<td style="padding: 8px 5px 8px 10px; font-size: 14px"><c:out value="${mini.content }"/> </td>
+				     		<td style="padding: 8px 5px 8px 10px; font-size: 14px">
+				     		<form action="${root }/mini/remove/${mini.num}" method="post">
+								<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+									<input type="submit" value="삭제"/>		     		
+								</sec:authorize> 
+				     		</form>
+				     		</td>
 			    		</tr> 
 			 		</c:forEach>
 			  </tbody>
@@ -253,7 +280,7 @@ $(document).ready(function(){
 		<div class="search-form">
 			 <form action="${root }/mini/list" id="searchForm" class="form-inline my-2 my-lg-0">
 			     <select name="type" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-				    <option value="W" ${cri.type eq 'W' ? 'selected' : ''}>아이디</option>
+				    <option value="W" ${cri.type eq 'W' ? 'selected' : ''} >아이디</option>
 				    <option value="C" ${cri.type eq 'C' ? 'selected' : '' }>사연</option>
 				    <option value="WC" ${cri.type eq 'WC' ? 'selected' : '' }>전체</option>
 				  </select>

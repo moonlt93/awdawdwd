@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.radio.domain.BoardVO;
 import com.radio.domain.Board_Criteria;
-import com.radio.domain.Board_PageDTO;
 import com.radio.mapper.BoardMapper;
 
 import lombok.AllArgsConstructor;
@@ -45,7 +44,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	
-	//게시물 읽기
+	//게시물 읽기(조회수증가)
 	@Override
 	public BoardVO read(Long board_bno) {
 		mapper.increaseRead_cnt(board_bno);
@@ -74,19 +73,22 @@ public class BoardServiceImpl implements BoardService{
 	
 	
 	
-	 
+	
 	//게시물 삭제
 	@Override
 	public boolean delete(Long board_bno) {
 		
 		return mapper.delete(board_bno) == 1;
 	}
-
+	
+	//오늘 요일정보 받아오기
 	@Override
-	public int getTotal(Board_PageDTO board_Criteria) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getToday() {
+		
+		return mapper.getToday();
 	}
+	
+	
 	
 
 }

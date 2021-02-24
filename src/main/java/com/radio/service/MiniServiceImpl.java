@@ -39,5 +39,10 @@ public class MiniServiceImpl implements MiniService {
 	public List<MiniVO> getListWithPaging(Criteria cri) {
 		return mapper.getListWithPaging(cri);
 	}
+	
+	@Override
+	public int delete(Long num) {
+		return mapper.delete(num);
+	}
 
 }

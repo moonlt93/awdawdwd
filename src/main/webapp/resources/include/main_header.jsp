@@ -1,44 +1,72 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page session="false" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet">  
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
-	.login_button {
+	.main_header ul {
+		list-style: none;
+		display: flex;
+		background-color: black;
+		height: 55px;
+		justify-content: flex-end;
+	}
+	
+	.nav_list {
+		text-decoration: none;
+		color: white;		
+	}
+	
+	.nav_list:hover {
+		text-decoration: none;
 		color: pink;
-		
 	}
 </style>
+
+<title>Insert title here</title>
 </head>
 <body>
-	  <div class="">
-          <sec:authorize access="isAnonymous()">
-		      <li class="">
-		        <a class="login_button" href="/customLogin">로그인</a>
+	<div class="main_header">
+		<ul>
+	     <sec:authorize access="isAnonymous()">
+   			<li class="">
+   				<a href="${root }/member/register" class="nav_list">회원가입</a>
+   			</li>
+   		</sec:authorize>
+	      <sec:authorize access="isAnonymous()">
+		      <li class="nav-item">
+		        <a class="nav_list" href="/customLogin">로그인</a>
 		      </li>
 	      </sec:authorize>
 	      
 	      <sec:authorize access="isAuthenticated()">
-		      <li class="">
+	      <form action="${root}/info.jsp" method="post">
+		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+		  <button type="submit" class="nav_list">마이페이지</button>
+	      </form>
+		      <li class="nav-item">
 	      	<form action="/logout" method="post">
 		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		        <button type="submit" class="logout_button">로그아웃</button>
+		        <button type="submit" class="nav_list">로그아웃</button>
 	      	</form>
 		      </li>
 	      </sec:authorize>
-        </div>
+   		</ul>
+	</div>
+
 </body>
 </html>

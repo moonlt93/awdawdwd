@@ -39,28 +39,12 @@
 <body>
 
 <div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-            <sec:authorize access="isAnonymous()">
-		      <li class="nav-item">
-		        <a class="nav-link" href="/customLogin">로그인</a>
-		      </li>
-	      </sec:authorize>
-	      
-	      <sec:authorize access="isAuthenticated()">
-		      <li class="nav-item">
-      			<form action="/logout" method="post">
-		       		 <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		        	 <button type="submit" class="btn btn-outline-dark btn-sm">로그아웃</button>
-	      		</form>
-		      </li>
-	      </sec:authorize>
-        </nav>
+       <jsp:include page="/resources/include/main_header.jsp" />  
     </div>
     <div class="wrapper">  
 
         <div class="header">
-            <h1><a class="moon" href="${root }">Moon's radio</a></h1>
+            <h1><a class="moon" href="${root }/">Moon's radio</a></h1>
         </div> 
 
         <div class="nav">

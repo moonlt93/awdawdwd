@@ -42,5 +42,12 @@
 	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/osdt_cert.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/osdt_core.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/ucp.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/dsn.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/gimap.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/imap.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/javax.mail-api-1.4.7.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/pop3.jar"/>
+	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/smtp.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -9,11 +9,11 @@ import lombok.Data;
 public class MemberVO {
 	
 	private Long bno;
-	private String name;
+	private String name; 
 	private String id;
 	private String password;
 	
-	private boolean enbaled;
+	private boolean enabled;
 	
 	private String email;
 	private String add1;
@@ -25,7 +25,4 @@ public class MemberVO {
 	private Date regdate;
 	
 	private List<AuthVO> authList;
-	 
 }
-
-

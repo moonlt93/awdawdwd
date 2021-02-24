@@ -2,6 +2,7 @@ package com.radio.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.radio.domain.BoardVO;
 import com.radio.domain.Board_Criteria;
 import com.radio.domain.Board_PageDTO;
+import com.radio.security.domain.*;
 import com.radio.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -44,6 +46,7 @@ public class BoardController {
 		model.addAttribute("list", service.getList(board_Criteria));
 		model.addAttribute("pageInfo", new Board_PageDTO(board_Criteria, service.getTotal(board_Criteria)));
 		model.addAttribute("notiNum", 1);
+		model.addAttribute("today", service.getToday());
 		
 		
 	}
@@ -74,7 +77,7 @@ public class BoardController {
 		rttr.addAttribute("day", board_Criteria.getDay());
 		
 		//Modal Message
-		rttr.addAttribute("message", boardVO.getBoard_bno() + "번 글이 등록되었습니다.");
+		rttr.addFlashAttribute("message", boardVO.getBoard_bno() + "번 글이 등록되었습니다.");
 		
 		
 		
@@ -118,7 +121,7 @@ public class BoardController {
 		log.info("********modify(post) 실행************");
 		
 		if(service.modify(boardVO)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("message", boardVO.getBoard_bno() + "번 글이 수정되었습니다.");
 		}
 		
 		//페이지 정보
@@ -128,8 +131,7 @@ public class BoardController {
 		rttr.addAttribute("keyword", board_Criteria.getKeyword());
 		rttr.addAttribute("day", board_Criteria.getDay());
 		
-		//ModalMessage
-		rttr.addAttribute("message", boardVO.getBoard_bno() + "번 글이 수정되었습니다.");
+		
 
 		return "redirect:/board/list";
 	}
@@ -143,7 +145,7 @@ public class BoardController {
 		log.info("************delete 실행*************");
 		
 		if(service.delete(board_bno)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("message", board_bno + "번 글이 삭제되었습니다.");
 		}
 		
 		//페이지 정보
@@ -153,8 +155,7 @@ public class BoardController {
 		rttr.addAttribute("keyword", board_Criteria.getKeyword());
 		rttr.addAttribute("day", board_Criteria.getDay());
 		
-		//Modal Message
-		rttr.addAttribute("message", board_bno + "번 글이 삭제되었습니다.");
+		
 		
 		return "redirect:/board/list";
 	}

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,13 +12,15 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="text/javascript" src="${root }/resources/js/board_reply.js"></script>
+
 
 <script type="text/javascript">
 	$(document).ready(function(e){
@@ -41,134 +44,123 @@
 		
 		$("button[data-oper='delete']").click(function(e){
 			operForm.append("<input type='hidden' name='board_bno' value='"+${boardVO.board_bno}+"'>");
+			operForm.append("<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token }'>");
+		
 			operForm.attr("method", "post");
 			operForm.attr("action", root + "/board/delete");
 			
 			operForm.submit();
-		});	
+		});
+		
+		
+		
+		
+		
+		
+		
 	});
 </script>
-<style type="text/css">
-	.read-form {
-		margin: 3%;
-		padding: 3%;
-	}
-	.board_header {
-		background-color: rgb(241, 241, 241);
-		border: rgb(241, 241, 241);	
-	}
-	
-	.input_border-content {
-		outline: none;
-		border: none;
-		height: 200px;
-	}
-	.h5message h5{
-		text-align: center;
-		color: lightslategrey; 
-		margin-bottom: 50px; 
-	}
-	
-	.header1 {
-		align-items: center;
-	}
-	.input_cnt {
-		justify-self: end;
-	}
-	.board_read {		  
-		 margin: 5px 0px 5px 0px;
-	}		
-	
-	.input_num {
-		font-size: 13px;
-		color: grey;
-		padding: 3px;
-	}
-	
-	.input_id {
-		padding: 3px;
-		font-size: 15px;
-	}
-
-	.board_content {
-		
-		margin: 20px 0px 20px 0px; 
-	}
-	
-	.h5message input {
-		outline: none;  	
-		padding: 5px;
-		background-color: snow;
-		border: none;	
-			 
-	}
-	
-	.board-button { 
-		border: solid 1px silver;		
-	} 
-	
-	.btn-list, .btn-modify, .btn-delete {
-		margin: 5px;	
-	}
-	
-	
-</style>
 <title>Insert title here</title>
 </head>
-<body> 
+<body>
+<div class="container-sm">
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<h1>게시물 보기</h1>
+			</div>
+		</div>	
+			
+		<div class="row justify-content-center">
+			<div class="col-lg-12">	
+		
 
-<div class="read-form">
-		
-			<div class="h5message">
-				<h5><strong>게시물 보기</strong></h5>
-				<input class="input_title" readonly value='<c:out value="${boardVO.board_title}" />' 
-					type="text" class="" > 
+			<div class="form-group">
+						<label for="input3">번호</label>
+						<input class="form-control" type="text" id="input3" readonly value="${boardVO.board_bno }" />
 			</div>
-			  
-			
-		<div class="board_read">  	 
-			<div class="board_header"> 
-				<div class="header1"> 
-					<span class="input_num">${boardVO.board_bno }</span>
-					<span class="input_id"><i class="fa fa-user">${boardVO.board_id }</i></span>		
-					<span class="input_cnt">${boardVO.board_read_cnt }</span>			
-				</div>	
-						
+					
+			<div class="form-group">
+				<label for="input1">제목</label> <input readonly value='<c:out value="${boardVO.board_title}" />' type="text"
+							class="form-control" id="input1" >
 			</div>
-				<input class="input_border" type="text" readonly value="${boardVO.board_bno }" hidden/>
-				<input class="input_border" readonly value='<c:out value="${boardVO.board_id }" />' type="text"  class="" id="input_id" hidden >
-				<input class="cnt" readonly value='<c:out value="${boardVO.board_read_cnt }" />' type="text" class="" id="input_cnt" hidden >
-					    
-								  
-						  
-						 
-			<div class="board_content">
-					
-					 
-					
-					<input class="input_border-content" readonly
-							value='<c:out value="${boardVO.board_content}" />' 
-							type="text">
-			</div>	
+
+			<div class="form-group">
+					<label for="textarea1">내용</label>
+					<textarea readonly class="form-control" id="textarea1"
+							rows="3"><c:out value="${boardVO.board_content}" /></textarea>
+			</div>
+
+			<div class="form-group">
+					<label for="input2">작성자</label> <input readonly 
+						  value='<c:out value="${boardVO.board_id }" />' type="text"
+					class="form-control" id="input2" >
+			</div>
 				
+			<div class="form-group">
+					<label for="input1">조회수</label> <input readonly 
+					    value='<c:out value="${boardVO.board_read_cnt }" />' type="text"
+						class="form-control" id="input1" >
+			</div>
+			</div>
+			
+		</div>
+		
+			
+		
+		
+		<c:choose>		
+			<c:when test="${boardVO.board_bno eq 1 }">
+				<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" >
+					<div class="btn-group ">
+  					<button data-oper="modify" type="button" class="btn btn-secondary">수정하기</button>
+  					<button data-oper="delete" type="button" class="btn btn-light">삭제하기</button>
+					</div>
+				</sec:authorize>
+				<div class="btn-group ">
+					<button data-oper="list" type="button" class="btn btn-secondary">목록으로</button>
+				</div>
+			</c:when>
+			
+			<c:otherwise>
+				<div class="btn-group ">
+  					<button data-oper="modify" type="button" class="btn btn-secondary">수정하기</button>
+  					<button data-oper="delete" type="button" class="btn btn-light">삭제하기</button>
+  					<button data-oper="list" type="button" class="btn btn-secondary">목록으로</button>
+				</div>	
+			</c:otherwise>
+		</c:choose>		
+</div>
+
+<!-- 댓글목록 -->
+<div class="container-sm my-3">
+		<div class="row" style="margin-left: 5px;">
+			<div class="col-12">
+				<div class="card">
+				
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<span>댓글 목록</span>
+						<sec:authorize access="isAuthenticated()">
+						<button class="btn btn-info" id="new-reply-btn">댓글 쓰기</button>
+						</sec:authorize>
+					</div>
 					
-		
-		
-		<div class="board-button">
+					<div class="card-body">
+						<ul class="list-unstyled" id="reply-ul">
+							
+						</ul>
+						
+					</div>
+				</div>
 			
-  				<button data-oper="list" type="button" class="btn-list">목록으로</button>
-			
-			
-  				<button data-oper="modify" type="button" class="btn-modify">수정하기</button>
-			
-			
-  				<button data-oper="delete" type="button" class="btn-delete">삭제하기</button>
+			</div>
 		</div>
-		 
-		</div>
+	</div>
+
+
+
 
 <div class="d-none">
-	<form id="operForm" action="${root }/board/list" method="get">
+	<form id="operForm" action="/board/list" method="get">
 		<input type="hidden" name="pageNum" value="${board_Criteria.pageNum }">
 		<input type="hidden" name="amount" value="${board_Criteria.amount }">
 		<input type="hidden" name="type" value="${board_Criteria.type }">
@@ -177,8 +169,6 @@
 		
 		<input type="submit"/>
 	</form>
-
-</div>
 
 </div>
 

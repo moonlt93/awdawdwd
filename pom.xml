@@ -38,7 +38,16 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
+		</dependency>
+			
+		<!-- 트랜젝션 START -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>{org.springframework-version}</version>
+		</dependency>
+		<!-- 트랜젝션 END -->
 		
 		<!-- Logging -->
 		<dependency>
@@ -147,7 +156,7 @@
     <artifactId>HikariCP</artifactId>
     <version>2.7.4</version>
 </dependency>
-		
+		 
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 <dependency>
     <groupId>org.mybatis</groupId>
@@ -187,13 +196,13 @@
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.9.6</version>
+    <version>2.11.3</version>
 </dependency>
 	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
 <dependency>
     <groupId>com.fasterxml.jackson.dataformat</groupId>
     <artifactId>jackson-dataformat-xml</artifactId>
-    <version>2.9.6</version>
+    <version>2.11.3</version>
 </dependency>
 	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 <dependency>
@@ -227,6 +236,53 @@
 		    <artifactId>spring-security-taglibs</artifactId>
 		    <version>5.0.6.RELEASE</version>
 	</dependency>
+	
+	<dependency>
+
+    <groupId>com.oracle.oci.sdk</groupId>
+
+    <artifactId>oci-java-sdk-audit</artifactId>
+
+    <version>1.30.0</version>
+
+  </dependency>
+
+  <dependency>
+
+    <groupId>com.oracle.oci.sdk</groupId>
+
+    <artifactId>oci-java-sdk-core</artifactId>
+
+    <version>1.30.0</version>
+
+  </dependency>
+
+  <dependency>
+
+    <groupId>com.oracle.oci.sdk</groupId>
+
+    <artifactId>oci-java-sdk-database</artifactId>
+
+    <version>1.30.0</version>
+
+  </dependency>
+
+  <dependency>
+
+    <groupId>com.oracle.oci.sdk</groupId>
+
+    <artifactId>oci-java-sdk-objectstorage</artifactId>
+
+    <version>1.30.0</version>
+
+  </dependency>
+		
+	<!-- java mail dependency -->
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
 		
 	</dependencies>
     <build>

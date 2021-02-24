@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.radio.domain.BoardVO;
 import com.radio.domain.Board_Criteria;
-import com.radio.domain.Board_PageDTO;
 
 public interface BoardService {
 	
@@ -27,8 +26,9 @@ public interface BoardService {
 	public boolean delete(Long board_bno);
 	
 	//게시물 총 개수
-	public int getTotal(Board_PageDTO board_Criteria);
-
-	int getTotal(Board_Criteria cri); 
+	public int getTotal(Board_Criteria cri);
+	
+	//오늘날짜 받아오기
+	public int getToday();
 	
 }
