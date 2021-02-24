@@ -105,16 +105,33 @@ $(document).ready(function() {
 #pictureRoom-list1 div {
 	display: block;
 }
+
+.pic_btn {
+	background-color: lightgrey;
+	color: white;
+	width: 60px;
+	margin: 20px;
+	padding: 2px;
+	text-align: center;
+	border-radius: 5px 5px;
+	font-weight: bold;
+}
+
+.pic_btn:hover {
+	text-decoration: none;
+	color: grey;
+	font-weight: bold;
+}
 </style>
 <title>Insert title here</title>
 </head>
 <body>
 <div class="container-fluid">
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
-
-	<a href="${root }/picroom/register" type="submit" data-oper='modify' id="pictureRoom-btn" class="btn btn-default">글쓰기</a>
+	
+	<a href="${root }/picroom/register" type="submit" data-oper='modify' id="pictureRoom-btn" class="pic_btn">사진</a>
 	</sec:authorize> 
-	<div class="row" id="pictureRoom-list1" ></div>
+	<div id="pictureRoom-list1" ></div>
 	<div class="text-center">
 		<button id="pictureRoom-load-btn1" class="btn btn-outline-secondary" >더 보기</button>
 	</div>

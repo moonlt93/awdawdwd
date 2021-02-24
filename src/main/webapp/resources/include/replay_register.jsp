@@ -17,44 +17,111 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style type="text/css">
+	.header_title {
+		border-bottom: 1px silver solid;
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	}
+	
+	.header_title h6 {
+		margin-left: 10px;	
+	} 
+	
+	.register_wrapper {
+		margin: 30px 40px 10px 40px;
+	}
+	
+	.tit_input {
+		margin-bottom: 20px; 
+	}
+	.tit_input input {
+		outline: none;
+		border: 1px solid silver;	
+	}
+	
+	.con_input textarea {
+		resize: none;
+		outline: none;
+		border: 1px silver solid;
+		margin-bottom: 10px;
+		text-align: center;
+		border-radius: 5px 5px;
+	}
+	
+	.reg_btn {
+		background-color: lightgrey;
+		color: snow;
+		padding: 2px 4px 2px 4px;
+		border-radius: 3px;
+		height: 27px;
+		margin-right: 5px;
+	}
+	
+	.wri_input {
+		outline: none;
+		border: none;
+		background-color: snow;
+		color: grey;
+	}
+	.tit_input {
+		border-bottom: 1px solid silver;
+		height: 40px;
+		margin-bottom: 20px;
+	}
+	.tit_input input {
+		border: none;
+		outline: none;
+		text-align: center;
+	}
+	.tit_content {
+		padding: 20px 100px 20px 100px;  
+		background-color: white;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-radius: 5px 5px;
+	}
 
+</style>
 <title>Insert title here</title>
 </head>
 <body>
+<div class="header_title">
+<h6>다시듣기</h6>
+</div>
 
-
-	<div class="">
-		<div class="">
-			<div class="">
+			<div class="register_wrapper">
 
 				<form method="post" enctype="multipart/form-data">			
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 				
-					<div class="">
-						<input name="title" type="text"
-						class="form-control" id="input1" placeholder="제목을 입력하세요.">
+				<div class="tit_content">
+					<div class="tit_input">
+					<input name="title" type="text"
+						 placeholder="제목을 입력하세요.">
 					</div>
 
-					<div class="">
-						<textarea name="content" class="form-control" id="textarea1"></textarea>
+					<div class="con_input">
+						<textarea cols="30" rows="20" name="content" class="form-control" id="textarea1"></textarea>
+						<input name="file" type="file" accept="audio/* " class="file_button">
+					</div>
 					</div>
 					
-					<!-- accept 어트리뷰트 설정타입 = MIME타입  audio/*-->
-					<div class="">
+					<!-- accept 어트리뷰트 설정타입 = MIME타입  audio/*-->		
 						 <!-- 이미지 파일만 넣고 싶을때 -->
-						<input name="file" type="file"
-							accept="audio/* "
- 							class="">
-					</div>
+						
+				
 					
 
 					<div class="">
 						<input name="writer" type="text"
-							class="" >
+							class="wri_input" >
 					</div>
 					
 
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="reg_btn">등록</button>
 				</form>
 			</div>
 		</div>

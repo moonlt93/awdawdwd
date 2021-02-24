@@ -143,12 +143,10 @@
 </head>
 <body>
 
-<div class="header2">
-        <nav class="header-nav">
+		<div class="header2">        
             <jsp:include page="/resources/include/main_header.jsp" /> 
-        </nav>
-    </div>
-    <div class="wrapper">  
+    	</div>
+   		<div class="wrapper">  
 
         <div class="header">
             <h1><a class="moon" href="${root }/">Moon's radio</a></h1>
