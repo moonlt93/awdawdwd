@@ -57,7 +57,7 @@
 	
 	
 	<insert id="insert">
-		insert into tbl_Replay (bno, title, content, writer,filename)
+		insert into tbl_Replay (bno, title, content, writer, filename)
 		values (seq_REboard.nextval, #{title}, #{content}, #{writer},#{filename})
 	</insert>
 	
@@ -75,23 +75,22 @@
 	</select>
 	
 	<delete id="delete">
-		delete from tbl_replay where bno = #{bno}
+		delete from tbl_Replay where bno = #{bno}
 	</delete>
 	
 	<update id="update">
-	UPDATE tbl_Replay
-	SET
-	  title = #{title},
-	  content = #{content},
-	  writer =  #{writer},
-	  filename= #{filename},
-	  updateDate = sysdate
-	WHERE
-	  bno = #{bno}
-	</update>
+ 		UPDATE tbl_Replay 
+ 		SET
+ 		title = #{title},
+ 		content = #{content},
+ 		writer = #{writer},
+ 		filename = #{filename, jdbcType=VARCHAR}
+ 		 
+ 		WHERE bno = #{bno}
+ 	</update>
 	
 	<select id="getTotalCount" resultType="int">
-	SELECT count(*) FROM tbl_replay	
+	SELECT count(*) FROM tbl_Replay	
 	<include refid="criteria"></include>
 	</select>
 	

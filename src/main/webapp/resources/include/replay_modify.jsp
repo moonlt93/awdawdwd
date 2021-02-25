@@ -116,15 +116,19 @@ $(document).ready(function() {
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 				
 				<div class="con">
-					<input hidden name="bno" type="text"readonly value="${board.bno }" />
+					<input hidden="hidden" name="bno" type="text"readonly value="${board.bno }" />
 					<div class="title_input">
 						<input name="title" type="text"
 						class="title_txt" value='<c:out value="${board.title }" />'>
 					</div>
 
 					<div class="content_input">
-						<textarea name="content" class="content_txt" id="textarea1"
+						<textarea name="content" class="content_txt" id="content"
 						 cols="10" rows="10" ><c:out value="${board.content }"/></textarea>
+					</div>
+					
+					<div class="con_input">
+						<input name="file" type="file" accept="audio/* " class="file_button">
 					</div>
 
 					<div class="writer_input">
@@ -137,7 +141,9 @@ $(document).ready(function() {
 					<input type="hidden" value="${cri.amount }" name="amount" />
 					<input type="hidden" value="${cri.keyword }" name="keyword" />
 					<input type="hidden" value="${cri.type }" name="type" />
+					
 					<button type="submit" class="mod_del">수정</button>
+					
 					<button id="remove-btn" type="submit" class="mod_del">삭제</button>
 				</form>
 			</div>

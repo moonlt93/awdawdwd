@@ -357,12 +357,17 @@
             <strong class="title1">보이는라디오</strong>
             	<div class="box box_short photo" id="bora">
 				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5"><span class="img"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" 	
-				width="160px" align="left"></span>
-				<span class="btn-bora"></span><span class="content">채형's security강의</span><span class="date">방송일 2021-02-18</span></a></div>
+				width="168px" align="left"></span>
+				<span class="btn-bora"></span><span class="content">채형's security강의</span><span class="date">방송일 <br/> 2021-02-18</span></a></div>
         </div>
 
         <div class="listener">
-            <strong class="title1">다시듣기</strong>           
+            <strong class="title1"><i class="fa fa-file-audio-o" aria-hidden="true"></i>다시듣기</strong>  
+            <div class="box box_short photo" id="bora">
+				<a href="http://localhost:8080/replay/get?bno=87&pageNum=1&amount=10"><span class="img"><img src="https://cdn.pixabay.com/photo/2018/03/21/23/59/microphone-3248800_960_720.png" 	
+				width="159px" align="left"></span>
+				<span class="btn-bora"></span><span class="content">아이유 <br/> -내 손을 잡아-</span><span class="date" ><br/>방송일 <br/> 2021-02-25</span></a></div>         
+        
         </div>
 
         <div class="SNS">

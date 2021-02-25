@@ -1,0 +1,86 @@
+.signup {
+  width: 430px;
+  padding: 48px;
+  margin: 64px auto;
+  border: 1px solid #dee2e6;
+  border-radius: 2px;
+}
+.signup-info {
+  margin-bottom: 24px;
+}
+.sinup-module {
+  margin-bottom: 16px;
+}
+.sinup-text {
+  width: 100%;
+}
+.sinup-text > p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #495056;
+  line-height: 16px;
+}
+.TextField-module__input--kfks8.TextField-module__medium--2zybh {
+  height: 40px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 14px;
+}
+.TextField-module__input--kfks8 {
+  width: 100%;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px #ced4da;
+  background-color: #fff;
+  font-weight: 500;
+  color: #343a40;
+  transition: box-shadow 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.TextField-module__input--kfks8:focus {
+  box-shadow: inset 0 0 0 2px #2b96ed;
+}
+
+.Button-module__primary--3KITS[disabled] {
+  border: 1px solid #cbe7fd;
+  background-color: #cbe7fd;
+}
+.Button-module__button--1H779[disabled] {
+  cursor: not-allowed;
+}
+.Button-module__block--2gnY_ {
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: center;
+}
+.Button-module__primary--3KITS {
+  border: 1px solid #51abf3;
+  background-color: #51abf3;
+  color: #fff;
+}
+.Button-module__large--xFJf5 {
+  height: 48px;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 16px;
+}
+.Button-module__button--1H779 {
+  border: 0;
+  padding: 0;
+  position: relative;
+  border-radius: 4px;
+  /* background-color: rgba(0, 0, 0, 0); */
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease-out, background-color 0.1s ease-out, color 0.1s ease-out,
+    border-bottom 0.1s ease-out;
+}
+.Button-module__primary--3KITS:active {
+  border: 1px solid #2b96ed;
+  background-color: #2b96ed;
+  box-shadow: 0 0 0 3px #a7d4f9;
+}

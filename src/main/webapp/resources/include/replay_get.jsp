@@ -113,6 +113,8 @@ var bno = ${board.bno};
 		text-size: 16px;
 }
 </style>
+
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -128,14 +130,15 @@ var bno = ${board.bno};
 						<div class="tit">
 							<span style="color: white; font-weight: bold; font-size: 18px;"><c:out value="${board.title }" /></span>			
 						</div>
+						
 						<div>
 							<span class="fmt_date"><fmt:formatDate pattern="yyyy-MM-dd" value= "${board.regdate }"/></span>
 						</div>
 					</div>
 					
 					<div class="audio_div">
-						 <%-- <img alt="" class="img-fluid" src="${staticPath}${board.filename }">--%>						
-						 <audio src="${staticPath}${board.filename }" width='600' controls autoplay></audio>
+										
+						 <audio src="${staticPath1}${board.filename }" width='600' controls autoplay></audio>
 		
 					</div>
 				</div>
@@ -147,6 +150,9 @@ var bno = ${board.bno};
 						</div>
 							<c:url value="/replay/modify" var="modifyLink">
 							<c:param name="bno" value="${board.bno }"></c:param>
+							<c:param name="title" value="${board.title }"></c:param>
+							
+							<c:param name="content" value="${board.content }"></c:param>
 							<c:param name="pageNum" value="${cri.pageNum }"></c:param>
 							<c:param name="amount" value="${cri.amount }"></c:param>
 							<c:param name="type" value="${cri.type }" ></c:param>

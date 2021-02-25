@@ -35,19 +35,19 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/sts-bundle/sts-3.9.13.RELEASE/lombok.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
-	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/ojdbc8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/oraclepki.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/osdt_cert.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/osdt_core.jar"/>
-	<classpathentry kind="lib" path="C:/Users/dbfk9/OneDrive/Documents/oracle-cloud-db-lib/ucp.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/dsn.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/gimap.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/imap.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/javax.mail-api-1.4.7.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/mailapi.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/pop3.jar"/>
-	<classpathentry kind="lib" path="/TeamProject/src/main/webapp/WEB-INF/lib/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/workspace/spring workspace/sts-bundle/sts-3.9.13.RELEASE/lombok.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/dsn.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/gimap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/imap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/javax.mail-api-1.4.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/oraclepki.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/osdt_cert.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/osdt_core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/pop3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/moonl/Documents/spring workspace/radio-project/src/main/webapp/WEB-INF/lib/ucp.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

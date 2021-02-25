@@ -75,14 +75,10 @@ public class ReplayController {
 //	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@PostMapping("/register")
 	@PreAuthorize("isAuthenticated()")
-	public String register(ReplayVO board,MultipartFile file, RedirectAttributes rttr) {
+	public String register(ReplayVO board,MultipartFile file, RedirectAttributes rttr
+							,Criteria cri) {
 		
-		/*
-		BoardVO board = new BoardVO();
-		board.setTitle(request.getParameter("title"));
-		board.setContent(request.getParameter("content"));
-		board.setWriter(request.getParameter("writer"));
-		*/
+		
 		board.setFilename("");
 		
 		//타입 등록 x
@@ -102,6 +98,8 @@ public class ReplayController {
 		
 		rttr.addFlashAttribute("result", board.getBno());
 		rttr.addFlashAttribute("message", board.getBno() + "번 글이 등록되었습니다.");
+		rttr.addFlashAttribute("pageNum",cri.getPageNum());
+		rttr.addFlashAttribute("amount",cri.getAmount());
 		
 //		return "board/list";
 		return "redirect:/replay/list";
@@ -111,16 +109,7 @@ public class ReplayController {
 	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("bno") Long bno,
 			@ModelAttribute("cri") Criteria cri, Model model) {
-		/** 예전 코드 (스프링 없이) 
-		String boardNum = request.getParameter("num");
-		int num = Integer.parseInt(boardNum);
-		
-		BoardVO vo = service.get((long) num);
-		
-		request.setAttribute("board", vo);
-		
-		request.getRequestDispatcher(".jsp").forward();
-		*/
+	
 		
 		log.info("get method - bno: " + bno);
 		log.info(cri);
@@ -129,13 +118,6 @@ public class ReplayController {
 //		model.addAttribute("cri", cri);
 	}
 	
-	/*
-	@GetMapping("/modify")
-	public void modify(Long bno, Model model) {
-		BoardVO vo = service.get(bno);
-		model.addAttribute("board", vo);
-	}
-	*/
 	
 	@PostMapping("/modify")
 	public String modify(ReplayVO board, Criteria cri, RedirectAttributes rttr) {
@@ -153,8 +135,7 @@ public class ReplayController {
 		log.info(cri);
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+	
 		
 		return "redirect:/replay/list";
 	}

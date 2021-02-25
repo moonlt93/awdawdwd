@@ -3,7 +3,6 @@ package com.radio.service;
 import java.util.List;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.radio.domain.Criteria;
@@ -21,12 +20,7 @@ public class ReplayServiceImpl implements ReplayService {
 	
 	private ReplayMapper mapper;
 	
-	/*
-	//@Autowired
-	public BoardServiceImpl(BoardMapper mapper) {
-		this.mapper = mapper;
-	}
-	*/
+	
 	
 	// mapper.read(33);
 	

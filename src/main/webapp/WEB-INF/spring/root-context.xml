@@ -45,7 +45,7 @@
 	
 	<!-- 진수 버킷빈 -->
 	<bean id="ociConfigMOONPath" class="java.lang.String">
-		<constructor-arg value="/home/opc/oci-moon/config"></constructor-arg> 
+		<constructor-arg value="/home/opc/oci/config"></constructor-arg> 
 	</bean>
 		
 	<!--  유정 버킷 설정파일 -->

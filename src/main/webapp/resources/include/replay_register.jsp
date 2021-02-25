@@ -85,6 +85,24 @@
 	}
 
 </style>
+
+<script type="text/javascript">
+	var root = '${root}';
+	
+</script>
+<script type="text/javascript">
+	$(document).ready(function(e){
+		
+	
+	$('button[data-oper=cancel]').click(function(e){
+			todoForm.submit();
+			
+		});
+	
+});	
+</script>		
+
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -94,7 +112,7 @@
 
 			<div class="register_wrapper">
 
-				<form method="post" enctype="multipart/form-data">			
+				<form method="post"  action="${root }/replay/register"  enctype="multipart/form-data">			
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 				
 				<div class="tit_content">
@@ -102,9 +120,13 @@
 					<input name="title" type="text"
 						 placeholder="제목을 입력하세요.">
 					</div>
+					
+					<div class="con_input">						
+						<textarea name="content" 
+							cols="30" rows="20" placeholder="내용을 입력하세요."></textarea>
+					</div>
 
 					<div class="con_input">
-						<textarea cols="30" rows="20" name="content" class="form-control" id="textarea1"></textarea>
 						<input name="file" type="file" accept="audio/* " class="file_button">
 					</div>
 					</div>
@@ -112,20 +134,23 @@
 					<!-- accept 어트리뷰트 설정타입 = MIME타입  audio/*-->		
 						 <!-- 이미지 파일만 넣고 싶을때 -->
 						
-				
-					
 
 					<div class="">
 						<input name="writer" type="text"
-							class="wri_input" >
+							class="wri_input" value="<sec:authentication property='principal.member.id'/>">
 					</div>
 					
 
 					<button type="submit" class="reg_btn">등록</button>
 				</form>
 			</div>
-		</div>
+	<div class="d-none">
+		<form id="todoForm" action="${root }/replay/list">
+			<input type="hidden" name="pageNum" value="${cri.pageNum }">
+			<input type="hidden" name="amount" value="${cri.amount }">
+		</form>
 	</div>
+	
 
 </body>
 </html>
