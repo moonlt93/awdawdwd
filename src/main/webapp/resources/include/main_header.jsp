@@ -54,10 +54,9 @@
 	      </sec:authorize>
 	      
 	      <sec:authorize access="isAuthenticated()">
-	      <form action="${root}/info.jsp" method="post">
-		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		  <button type="submit" class="nav_list">마이페이지</button>
-	      </form>
+		      <form action="${root}/member/mypage">
+			  <button type="submit" class="nav_list">마이페이지</button>
+		      </form>
 		      <li class="nav-item">
 	      	<form action="/logout" method="post">
 		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">

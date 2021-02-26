@@ -238,7 +238,7 @@ th {
 <div class="weekList">
   <div class="listHeader">
         	<c:choose>
-        		<c:when test="${today eq 2}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 1}">
             		<strong class="title1">[월요일] 영업합니다</strong> 
             		<div class="description">
 						<p>
@@ -249,7 +249,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 3}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 2}">
             		<strong class="title1">[화요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
 						<p>
@@ -260,7 +260,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 4}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 3}">
             		<strong class="title1">[수요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
 						<p>
@@ -271,7 +271,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 5}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 4}">
             		<strong class="title1">[목요일] 극한일상</strong> 
             		<div class="description">
 						<p>
@@ -282,7 +282,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 6}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 5}">
             		<strong class="title1">[금요일] 전지적 작사 시점</strong> 
             		<div class="description">
 						<p>
@@ -293,7 +293,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 7}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 6}">
             		<strong class="title1">[토요일] SoSo썰_의뢰 사연</strong> 
             		<div class="description">
 						<p>
@@ -332,8 +332,14 @@ th {
     	<tbody >
     	<c:forEach items="${list }" var="boardVO">
     		<tr id="li">
-    			<td class="tx" style="width:70px">${boardVO.board_bno }</td>
-    			
+    			<c:choose>
+    				<c:when test="${boardVO.board_pin eq 1 }">
+    					<td class="tx" style="width:70px"><c:out value="[공지]"/></td>
+    				</c:when>
+    				<c:otherwise>
+    					<td class="tx" style="width:70px">${boardVO.board_bno }</td>
+    				</c:otherwise>
+    			</c:choose>
     			<td class="tx">
     				<!-- 관리자 or 매니저 권한 로그인 시 모든글 읽기 가능 -->
     				<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" >
@@ -345,7 +351,7 @@ th {
  					<!-- 로그인 안했을 시 공지글 제외하고는 못읽음 -->
  					<sec:authorize access="isAnonymous()">
  						<c:choose>
- 							<c:when test="${boardVO.board_bno eq 1 }">
+ 							<c:when test="${boardVO.board_bno eq 383 }">
  								<a class="move" href="<c:out value='${boardVO.board_bno}'/>">
     								<c:out value="${boardVO.board_title }"/>
     							</a>
@@ -362,7 +368,7 @@ th {
  							<sec:authentication property='principal.username'/>
  						</c:set>
  						<c:choose>
- 							<c:when test="${(boardVO.board_bno eq 1) or (boardVO.board_id eq loginID)  }">
+ 							<c:when test="${(boardVO.board_bno eq 383) or (boardVO.board_id eq loginID)  }">
  								<a class="move" href="<c:out value='${boardVO.board_bno}'/>">
     								<c:out value="${boardVO.board_title }"/>
     							</a>

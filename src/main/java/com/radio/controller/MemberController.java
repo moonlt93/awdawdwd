@@ -16,6 +16,7 @@ import javax.mail.internet.MimeMessage;
  
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,6 +91,15 @@ public class MemberController {
 		return emailCheckCount;
 	}
 
+	//마이페이지
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/mypage")
+	public void myPage() {
+		
+	}
+	
+	
+	
 	//아이디 찾기
 	@GetMapping("/findid")
 	public void findId() {
@@ -198,7 +208,7 @@ public class MemberController {
 
 		String host = "smtp.naver.com";
 		String user = "doodoo89@naver.com";
-		String password = "0124chae^^&";
+		String password = "5190chae^^&";
 
 		String to_email = email;
 

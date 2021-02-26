@@ -69,7 +69,7 @@
 			<div class="form-group">
 							<label for="input1">영상</label>
 							<video width="400" height="240" controls autoplay>
-  							<source src="${staticPath2 }${videoVO.video_vod}" >
+  							<source src="${BoardStaticPath }${videoVO.video_vod}" >
   							이 브라우저는 재생할 수 없습니다.
 							</video>
 			</div>

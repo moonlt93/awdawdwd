@@ -1,22 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet">	  
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<title>Insert title here</title>
 <style type="text/css">
 	 body {
 	background-image: url("../resources/pic/background.jpg");
@@ -34,41 +34,55 @@
    	   text-decoration: none;
    }
 </style>
-<title>Insert title here</title>
+
 </head>
 <body>
 
 <div class="header2">
         <nav class="header-nav">
-            <jsp:include page="/resources/include/main_header.jsp" /> 
+            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
+            &nbsp; <a href="/customLogin" style="text-decoration: none; color:white; align-items: center; display: flex;">로그인(임시임시얍!)</a>
         </nav>
     </div>
     <div class="wrapper">  
 
         <div class="header">
-            <h1><a class="moon" href="${root }/">Moon's radio</a></h1>
+            <h1><a class="moon" href="${root }">Moon's radio</a></h1>
         </div> 
 
-  <div class="nav">
-              <jsp:include page="/resources/include/main_nav.jsp" />                  
-        </div>
- 
-       <div class="corner">     
+            <div class="nav">
+                <jsp:include page="/resources/include/main_nav.jsp" />                
+            </div>
+
+        <div class="corner">     
              <jsp:include page="/resources/include/main_corner.jsp" />  
         </div> 
-      
+        
+        
         <div class="weekday">
             <jsp:include page="/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
-       <div class="main">
-       		<jsp:include page="/resources/include/info2.jsp" />
+       <div class="main" style="padding: 100px;">
+       		<h1>아이디 찾기</h1>
+			<h5>회원가입시 사용한 이메일을 입력해주세요.</h5>
+			
+			<form action="${root }/member/findid" method="post">
+				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
+				<div class="form-group">
+				    <label for="input-email">이메일</label>
+				    <input name="email" type="email" class="form-control" id="input-email" style="width: 300px;">
+				</div>
+			
+				
+				<button id="loginBtn" type="submit" style="margin-top: 20px;">아이디 찾기</button>
+			</form>
        </div>
        
-       <div class="empty1">
+        <div class="empty1">
 
-       </div>
+        </div>
         
     </div>
     
@@ -81,4 +95,5 @@
 
 
 </body>
+
 </html>

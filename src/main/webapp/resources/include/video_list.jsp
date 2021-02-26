@@ -199,7 +199,7 @@
 					<c:out value="${videoVO.video_date }"/>
 				</li>
 				<li class="list-group-item list-group-item-dark">
-					<img alt="" class="img-fluid" src="${staticPath2 }${videoVO.video_thumbnail}">
+					<img alt="" class="img-fluid" src="${BoardStaticPath}${videoVO.video_thumbnail}">
 					<button type="button" class="btn btn-secondary" 
 						data-oper="review" value="${videoVO.video_bno }">다시보기</button>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">		

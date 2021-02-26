@@ -45,7 +45,7 @@ public class BoardController {
 		
 		model.addAttribute("list", service.getList(board_Criteria));
 		model.addAttribute("pageInfo", new Board_PageDTO(board_Criteria, service.getTotal(board_Criteria)));
-		model.addAttribute("notiNum", 1);
+		model.addAttribute("notiNum", 383);
 		model.addAttribute("today", service.getToday());
 		
 		
