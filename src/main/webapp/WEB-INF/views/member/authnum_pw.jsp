@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: contain;
 	}	
 	
@@ -37,7 +37,7 @@
 </head>
 <body>
 <div class="header2">
-        <jsp:include page="/resources/include/main_header.jsp" /> 
+        <jsp:include page="${root }/resources/include/main_header.jsp" /> 
     </div>
     <div class="wrapper">  
 
@@ -46,11 +46,11 @@
         </div> 
 
             <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                
+                <jsp:include page="${root }/resources/include/main_nav.jsp" />                
             </div>
         
         <div class="weekday">
-            <jsp:include page="/resources/include/main_dayintro.jsp" />
+            <jsp:include page="${root }/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
@@ -58,7 +58,7 @@
        		<h1>비밀번호 변경</h1>
        		<c:if test="${empty noExistMsg and empty noMatchMsg}">
 				<br><h5>메일로 전송된 인증번호를 입력하세요.</h5>
-					<form action="/member/authnum_pw" method="post">
+					<form action="${root }/member/authnum_pw" method="post">
 						<input type="hidden" name="serverKey" value="${AuthenticationKey }">
 						<input type="hidden" name="email" value="${email }">
 						<input type="hidden" name="id" value="${id }">
@@ -101,7 +101,7 @@
     </div>
     
     <div class="footer">
-        <jsp:include page="/resources/include/main_footer.jsp" />
+        <jsp:include page="${root }/resources/include/main_footer.jsp" />
     </div>
     
 

@@ -23,6 +23,12 @@
         margin: 0;
         padding: 0;
     }
+    
+    	 body {
+	background-image: url("${root}/resources/pic/background.jpg");
+	background-size: contain;
+	}	
+    
 
    .wrapper{      
         display: grid;

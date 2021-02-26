@@ -96,6 +96,7 @@ th, tr {
 	border: 1px solid grey;
 	padding: 0px 8px 2px 8px;
 	border-radius: 5px 5px;
+	margin:0px;
 } 
 
 .page_num:hover {
@@ -104,8 +105,11 @@ th, tr {
 	text-decoration: none;
 }
 .search_form {
-	border: 1px solid rgb(241, 241, 241);
-	background-color: rgb(241, 241, 241); 
+	border: solid 1px rgb(241, 241, 241);
+	display: flex;
+	justify-content: center; 
+	padding: 20px 30px 20px 30px;
+	background-color: rgb(241, 241, 241);
 }
 
 .date_input {
@@ -212,7 +216,7 @@ th, tr {
 		    		<c:param name="type" value="${pageMaker.cri.type }"/>
 		    		<c:param name="keyword" value="${pageMaker.cri.keyword }"/>
 		    	</c:url>
-		    	<li class=" ${pageMaker.cri.pageNum eq num ? 'active' : '' }">
+		    	<li class=" ${pageMaker.cri.pageNum eq num ? 'active' : '' }" style="padding:0px; margin-right:2px;">
 		    	<%-- <a class="page-link" href="${pageLink }">${num }</a> --%>
 		    	<a class="page_num" href="${num }">${num }</a>
 		    	</li>
@@ -245,21 +249,22 @@ th, tr {
 
 
 	<div class="search_form">
-		<form action="${root }/playlist/play" id="searchForm" class="">
-			
-			기간별 검색<input class="date_input" name="date" required value="${board.regdate}" type="date">
+		<form action="${root }/playlist/play" id="searchForm" class="form-inline my-2 my-lg-0">
+					<span>기간 별 검색</span>
+					<input class="date_input" name="date" required value="${board.regdate}" type="date" style="margin-right: 5px;">
 			       <input class="date_input" name="date" required value="${board.regdate}" type="date">
 			
 			<div class="break" style="flex-basis: 100%; height: 0;"></div>
-			
-			분류별 검색<select name="type" class=""
+			 
+			<span>분류별 검색</span>
+			<select name="type" class="custom-select my-1 mr-sm-2"
 				id="inlineFormCustomSelectPref">
 				<option value="T" ${pageMaker.cri.type eq 'T' ? 'selected' : '' }>제목</option>
 				<option value="C" ${pageMaker.cri.type eq 'C' ? 'selected' : '' }>가수</option>
 				<option value="W" ${pageMaker.cri.type eq 'W' ? 'selected' : '' }>작성자</option>
 			</select> 
 			<input name="keyword" required value="${pageMaker.cri.keyword }"
-				class="" type="search" placeholder="Search"
+				class="form-control mr-sm-2" type="search" placeholder="Search"
 				aria-label="Search"> 
 				<input type="hidden" name="pageNum" value="1" /> 
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount }" />

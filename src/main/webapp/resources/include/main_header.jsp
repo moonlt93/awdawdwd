@@ -24,23 +24,39 @@
 		background-color: black;
 		height: 55px;
 		justify-content: flex-end;
+		align-items: center; 
 	}
 	
 	.nav_list {
 		text-decoration: none;
-		color: white;		
+		color: white; 
+				
 	}
 	
 	.nav_list:hover {
 		text-decoration: none;
-		color: pink;
+		color: white; 
+	} 
+	
+	.nav_btn {
+		padding: 0px 2px 0px 2px;
+		background-color: black;
+		outline: none;
+		border: none;
+		text-decoration: none;
+	}
+	
+	.nav_btn:hover {
+		outline: none;
+		border: none;
+		text-decoration: none;
 	}
 </style>
 
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="main_header">
+	<div class="main_header"> 
 		<ul>
 	     <sec:authorize access="isAnonymous()">
    			<li class="">
@@ -48,21 +64,23 @@
    			</li>
    		</sec:authorize>
 	      <sec:authorize access="isAnonymous()">
-		      <li class="nav-item">
-		        <a class="nav_list" href="/customLogin">로그인</a>
+		      <li class="">
+		        <a class="nav_list" href="${root }/customLogin">로그인</a>
 		      </li>
 	      </sec:authorize>
 	      
 	      <sec:authorize access="isAuthenticated()">
-		      <form action="${root}/member/mypage">
-			  <button type="submit" class="nav_list">마이페이지</button>
-		      </form>
-		      <li class="nav-item">
-	      	<form action="/logout" method="post">
-		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		        <button type="submit" class="nav_list">로그아웃</button>
+	      <li>
+	      	<form action="${root}/member/mypage">      
+		  		<button type="submit" class="nav_btn" style="margin-right: 20px;">마이페이지</button>
 	      	</form>
-		      </li>
+	      </li>
+		  <li class="">
+	      	<form action="${root }/logout" method="post">
+		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+		        <button type="submit" class="nav_btn">로그아웃</button>
+	      	</form>
+		   </li>
 	      </sec:authorize>
    		</ul>
 	</div>

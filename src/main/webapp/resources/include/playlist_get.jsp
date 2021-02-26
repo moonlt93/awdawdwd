@@ -27,7 +27,7 @@
 body {
 	padding: 0px;
 	margin: 0px;
-}
+} 
 .header_title {
 	border-bottom: 1px silver solid;
 	margin-top: 10px;	
@@ -39,8 +39,9 @@ body {
 } 
 
 .playGet_wrapper {
+	height: inherit;
 	margin: 30px 40px 10px 40px; 
-}
+} 
 
 .title_content {
 	border-bottom: 1px silver solid;
@@ -78,13 +79,14 @@ body {
 <title>Insert title here</title>
 </head>
 <body>
-
-<div class="header_title">
+<div>
+<div class="header_title" style="border-radius: 0px;">
 <h6>선곡표</h6>
 </div>
+
 	<div class="playGet_wrapper">
 	
-		<div class="title_content">
+		<div class="title_content" style="border-radius: 0px;">
 			<div class="t_fmt" style="display: flex; justify-content: space-between;">
 				<div class="date_div">
 					<span style="color: white; font-weight: bold; font-size: 18px;"><c:out value="${board.title }" /></span>			
@@ -100,7 +102,7 @@ body {
 				</pre>
 			</div>
 
-		</div> 
+		</div>  
 		
 	<div class="a_root" style="display: flex; justify-content: flex-end;">
 		<a href="${root}/playlist/play">목록</a> <br/>
@@ -116,6 +118,7 @@ body {
 			<a href="${modifyLink}" class="">수정</a>
 		</sec:authorize>  
 	</div>
+</div>
 </div>
 	
 </body>

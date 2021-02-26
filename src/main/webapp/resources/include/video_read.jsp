@@ -57,46 +57,84 @@
 	margin: 3%;
 	padding: 3%;
 }
+
+.header_title { 
+		border-bottom: 1px silver solid; 
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	} 
+	.header_title h6 {
+		margin-left: 10px;	 
+	} 
+	
+	.video {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
+	
+	.admin_btn {
+		background-color: lightgrey;
+		color: snow;
+		padding: 2px 4px 2px 4px;
+		border-radius: 3px;
+		height: 27px;
+		margin-right: 5px;
+		margin-bottom: 10px;
+	}
 </style>
 </head>
 <body>
 
-<h1>videoRead</h1>
 
 
-	<div class="row justify-content-center">
-		<div class="col-lg-12">	
-			<div class="form-group">
-							<label for="input1">영상</label>
-							<video width="400" height="240" controls autoplay>
+
+<div class=" ">
+		<div class="header_title" style="border-radius: 0px;">
+			<h6>보이는 라디오</h6>
+		</div>
+		
+	<div class="video-read">	 
+		<div>
+		<div style="border-bottom: 1px solid grey; border-radius: 0px;"> 
+			<div style="border-top: 1px grey solid;background-color: lightslategrey; height: 50px; padding: 0px 10px 0px 10px;">
+				<div class="read_cnt" style="display: flex; justify-content: space-between;align-items:center;" > 		 	
+				<strong class="title" style="color: white; font-weight: bold;"><c:out value='${videoVO.video_title }'/></strong>
+					<span><i style="color: black;" class="far fa-laugh"></i><c:out value="${videoVO.video_view_cnt }" /></span>
+				</div>
+		</div>
+			
+						<div class="video">
+							<video width="500" height="300" controls autoplay>
   							<source src="${BoardStaticPath }${videoVO.video_vod}" >
   							이 브라우저는 재생할 수 없습니다.
 							</video>
-			</div>
-						
-			<div class="form-group">
-							<label for="input1">조회수</label>
-							<input class="form-control" type="text" id="input1" readonly 
-								value="<c:out value='${videoVO.video_view_cnt }'/>"/>
-			</div>
-						
-			<div class="form-group">
-				<label for="input2">제목</label>
-				<input class="form-control" type="text" id="input2" readonly
-				    value="<c:out value='${videoVO.video_title }'/>"/>
-			</div>						
+						</div>
+				
 		</div>
-	</div>
+			
+			<div class="btn_broup" style="display:inline-flex; justify-content: space-between; margin-top: 20px;">
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
+			<div style="display:inherit;">
+				<button type="button" data-oper="modify" class="admin_btn">수정</button>
+				<button type="button" data-oper="delete" class="admin_btn">삭제</button>
+			</div>
+			</sec:authorize> 
+			<div>
+				<button type="button" data-oper="list" class="admin_btn">목록</button>
+			</div>
+		</div>
+		
+		</div>
+			</div>
+		</div>
+											
+
 	
 	
-	<div class="btn-group">
-		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
-			<button type="button" data-oper="modify" class="btn btn-secondary">수정하기</button>
-			<button type="button" data-oper="delete" class="btn btn-light">삭제하기</button>
-		</sec:authorize>
-			<button type="button" data-oper="list" class="btn btn-secondary">목록으로</button>
-	</div>
-	
+
 	
 	
 	<div class="d-none">
@@ -111,7 +149,7 @@
 	
 	
 
-</div>
+
 	
 	
 			

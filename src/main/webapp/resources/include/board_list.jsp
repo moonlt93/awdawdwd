@@ -132,11 +132,17 @@ var root = '${root}';
 	height: 500px;
 	
 }
+
 tr { 
 	border-bottom: solid 1px silver;
 }
+
+table tbody tr td {
+	padding: 3px 0px 3px 0px;
+}
 th {
 	text-align: center;
+	padding: 8px 0px 8px 0px;
 }
 
 .tx {
@@ -175,9 +181,9 @@ th {
 		border: 1px silver solid;		
 		display: inline-block;
 		width: 30px;
-		background-color: lightslategrey;
+		background-color: lightslategrey; 
 		text-align: center;
-		color: white;
+		color: white; 
 	}
 	
 	.priLi, .numLi, .nexLi {
@@ -213,20 +219,19 @@ th {
 		background-color: snow;
 		color: lightslategrey;
 	}
+	.reg_btn {
+		padding: 2px 4px 2px 4px;
+		margin-right: 5px;
+		background-color: darkgrey;
+		border-radius: 4px 4px;
+		outline: none;
+		border: none; 
+	}
 	
-
-#write-button {	
-	margin-top: 20px;
-	width: 100px;
-}
-.write-button {
-	padding: 0;
-	background-color: silver;
-}
-
-.write-button:hover {
-	color: lightslategrey; 
-}
+	.reg_btn:hover {
+		outline: none;
+		border: none;
+	}
 </style>
 
 <title>Insert title here</title>
@@ -363,7 +368,7 @@ th {
  					</sec:authorize>
  					
  					<!-- 일반 회원 로그인 했을때는 본인글과 공지글 읽기 가능 -->
- 					<sec:authorize access="hasRole('ROLE_USER')">
+ 					<sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MEMBER')">
  						<c:set var="loginID" >
  							<sec:authentication property='principal.username'/>
  						</c:set>
@@ -394,13 +399,18 @@ th {
   </div>
   
   
-  
-  <div id="write-button">
-  		<button data-oper="register" type="button" class="btn btn-secondary">글쓰기</button>
+ 
+ 	 <div id="write-button" style="display: flex; margin-top: 20px; justify-content: space-between;">
+ 	 	<div>
+  		<button data-oper="register" type="button" class="reg_btn">글쓰기</button> 
+ 	 	</div>
+ 	 	<div>
   		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
-  		<button data-oper="modify" type="button" class="btn btn-light">공지사항 수정</button>
+  		<button data-oper="modify" type="button" class="reg_btn">공지사항 수정</button>
   		</sec:authorize>
-  </div>
+ 	 	</div>
+  	</div> 
+ 
   
 
  
@@ -456,19 +466,19 @@ th {
 
 	<div class="search-form">
 	
-	<form id="searchForm" action="${root }/board/list">
-		<select name='type' id="type">
-			<option value="T" <c:out value="${pageInfo.board_Criteria.type eq 'T' ? 'selected' : '' }"/>>제목</option>
-			<option value="I" <c:out value="${pageInfo.board_Criteria.type eq 'I' ? 'selected' : '' }"/>>아이디</option>
-			<option value="N" <c:out value="${pageInfo.board_Criteria.type eq 'N' ? 'selected' : '' }"/>>게시물번호</option>
-		</select>
-		<input type="text" name="keyword" value='<c:out value="${pageInfo.board_Criteria.keyword }"/>'>
-		<input type="hidden" name="pageNum" value="${pageInfo.board_Criteria.pageNum }">
-		<input type="hidden" name="amount" value="${pageInfo.board_Criteria.amount }">
-		<input type="hidden" name="day" value="${pageInfo.board_Criteria.day }">
+		<form id="searchForm" action="${root }/board/list" class="form-inline my-2 my-lg-0" > 
+			<select name='type' class="custom-select my-1 mr-sm-2"  id="type">
+				<option value="T" <c:out value="${pageInfo.board_Criteria.type eq 'T' ? 'selected' : '' }"/>>제목</option>
+				<option value="I" <c:out value="${pageInfo.board_Criteria.type eq 'I' ? 'selected' : '' }"/>>아이디</option>
+				<option value="N" <c:out value="${pageInfo.board_Criteria.type eq 'N' ? 'selected' : '' }"/>>게시물번호</option>
+			</select>
+				<input type="text" name="keyword" class="form-control mr-sm-2" type="search" placeholder="검색어를 입력하세요." value='<c:out value="${pageInfo.board_Criteria.keyword }"/>'>
+				<input type="hidden" name="pageNum" value="${pageInfo.board_Criteria.pageNum }">
+				<input type="hidden" name="amount" value="${pageInfo.board_Criteria.amount }">
+				<input type="hidden" name="day" value="${pageInfo.board_Criteria.day }">
 	
-		<button class="">검색</button>
-	</form>
+				<button class="btn btn-light my-2 my-sm-0"" >검색</button>
+		</form>
 	
 	</div>
 

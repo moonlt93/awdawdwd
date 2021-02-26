@@ -14,66 +14,149 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <script type="text/javascript">
+$(document).ready(function() {
+	 
+ 	$(".login_form input").on("focus", function() {
+ 		$(this).addClass("focus");
+ 	});
+ 	
+ 	$(".login_form input").on("blur", function() {
+ 		if($(this).val() == "")
+ 		$(this).removeClass("focus");
+ 	});
+}); 
+ </script>
 <style type="text/css">
-	#login_container {
-		border: 1px solid;
+	.login_container {
+		position: relative;
+		height: 600px;
+		
 	}
 	.login_sub_container {
-		padding: 50px 30px 50px 30px;
-		border: 1px solid;
+		padding: 60px 40px; 
+		background: #f1f1f1;
+		height: 550px;    
+		width: 360px;	 
+		margin: 20px 0px 10px 0px;
+		position: absolute; 
+		left: 30%; 
+	}	
+	
+	.login_header h2 {
+		text-align: center; 
+		margin-bottom: 50px;
+		font-weight: bold;
 	}
-	.login_header h2 { 
-		text-align: center;
-	}
-	#form_id {
-		width: 500px;
-	}
+	
 	.login_form {
-		margin-bottom: 20px; 
+		border-bottom: 2px solid #adadad;
+		position: relative;
+		margin: 30px 0;
 	}
-	.find_btn {
-		text-decoration: none;
+	
+	.login_form input {
+		font-size: 15px;
+		color: #333;		
+		border: none;
+		width: 100%;
+		outline: none;
+		background: none;
+		padding: 0 5px;
+		height: 40px;
+	}
+	.span::before {
+		content: attr(data-placeholder);
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		color: #adadad; 
+		transform: translateY(-50%);
+		transition: .5s;		
+	}
+	
+	.span::after {
+		content: '';
+		position: absolute;
+		width: 0%;
+		height: 2px;
+		background: linear-gradient(120deg,#3498db,#8e44ad);
+		transition: .5s;
+	}
+	
+	.focus + span::before {
+		top: -5px;
+	}
+	
+	.focus + span::after {
+		width: 100%;
+	}
+	
+	.loginBtn {
+		width: 100%;
+		height: 50px;
+		border: none;
+		color: #fff;
+		outline: none;
+		background-color: lightslategrey;
+		border-radius: 5px 5px;
+		margin-top: 60px; 
+	} 
+	
+	.loginBtn:hover {
+		background-position: right;
+	}
+	
+	.btn_list {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+		font-size: 13px; 
+	}
+	
+	.btn_list span a{  
 		color: black;
-		background-color: white;
-		height: 20px;
+		margin: 0px 3px 0px 3px;
 	}
-	#loginBtn {
-		background-color: white;
-		color: black;
-		float: right;
-	}
+}
 </style>
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="login_container" style="padding: 70px;">
-		<div class="login_sub_container">
-	     		<div class="login_header">
-					<h2>로그인</h2>
-	     		</div>
-					<h5><c:out value="${error }"/></h5>
-					<h5><c:out value="${logout }"/></h5>
-			
-						<form action="/login" method="post" id="form_id">
-							<div class="login_form">
-								아이디 <input type="text" name="username" class="form-control" id="exampleInputEmail1">
+<div class="login_container" >
+	<div class="login_sub_container"> 
+	     		<form action="${root }/login" method="post" id="form_id">
+					
+							<div class="login_header"> 
+								<h2>로그인</h2>
+	     					</div>
+	     						
+							<h5><c:out value="${error }"/></h5>
+							<h5><c:out value="${logout }"/></h5>
+							
+							<div class="login_form" style="border-radius: 0px;">
+								<input type="text" name="username">
+								<span class="span" data-placeholder="아이디"></span>
 							</div>
-							<div class="login_form">
-								비밀번호 <input type="password" name="password" class="form-control" />
+							<div class="login_form" style="border-radius: 0px;">
+								<input type="password" name="password" />
+								<span class="span" data-placeholder="비밀번호"></span>
 							</div>
-							<div class="login_form">
-								<span><input type="checkbox" name="remember-me"> 자동 로그인</span>
+							<div class="login_form_check">
+								<span><input type="checkbox" name="remember-me">자동 로그인</span>
 							</div>
 							
 							<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 							
-							<div class="btn_list" style="display: flex;">
-								<a class="find_btn" href="${root }/member/findid">아이디찾기</a>/<a class="find_btn" href="${root }/member/findpw">비밀번호 찾기</a>
-								<button style="justify-content: right;" id="loginBtn" type="submit">로그인</button> 
+							<div class="btn_list" style="display: flex;" >
+								<span><a class="find_btn" href="${root }/member/findid">아이디찾기</a></span>/<span><a class="find_btn" href="${root }/member/findpw">비밀번호 찾기</a></span>
+							</div>
+							<div>
+								<button class="loginBtn" type="submit">로그인</button> 
 							</div>
 						</form>
 					
-		</div>
+				</div>
 	</div>
 </body>
 </html>

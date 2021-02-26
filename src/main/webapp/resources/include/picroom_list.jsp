@@ -105,7 +105,16 @@ $(document).ready(function() {
 #pictureRoom-list1 div {
 	display: block;
 }
-
+.header_title { 
+	border-bottom: 1px silver solid; 
+	margin-top: 10px;	
+	padding: 5px 0px 0px 0px;
+	height: 30px;
+}
+.header_title h6 {
+	margin-left: 10px;	 
+}  
+	
 .pic_btn {
 	background-color: lightgrey;
 	color: white;
@@ -126,6 +135,9 @@ $(document).ready(function() {
 <title>Insert title here</title>
 </head>
 <body>
+<div class="header_title" style="border-radius: 0px;">
+<h6>사진방</h6>
+</div>
 <div class="container-fluid">
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 	

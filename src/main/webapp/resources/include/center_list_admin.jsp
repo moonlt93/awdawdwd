@@ -56,8 +56,9 @@
 	}
 		
 	.center_header h2 {
-	text-align: center;	
-	color: pink;	 
+		text-align: center;		
+		color: white;
+		font-weight: bold;
 	}
 	
 	.menu_button ul{
@@ -84,7 +85,7 @@
 		
 		<div class="menu_button">
 			<ul>
-				<li><a href="${root }/service/admin" style="color: white;">문의 내역</a></li> 
+				<li><a href="${root }/service/admin" style="color: white;"><strong>문의 내역</strong></a></li> 
 			</ul>	 
 		</div> 
 </div>	

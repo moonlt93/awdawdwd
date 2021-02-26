@@ -61,27 +61,53 @@
 	margin: 3%;
 	padding: 3%;
 }
+
+.tit_content {
+		padding: 40px 100px 40px 100px;  
+		background-color: white;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-radius: 5px 5px;
+}
+
+.tit_content input {
+	margin-bottom: 20px;
+	border: 1px solid grey;
+}
 </style>
 </head>
 <body>
 
+
+<div class="header_title" style="border-radius: 0px;">
+	<h6>보이는 라디오</h6>
+</div>
+		
 <div class="video-modify">
-<h1>videoModify</h1>
+
 
 	<form id="modifyForm" action="${root }/video/video_modify" method="post"  enctype="multipart/form-data">
-		<label for="input1">게시물 번호</label>
-		<input id="input1" type="text" name="video_bno" value="${videoVO.video_bno }" readonly>
-		<label for="input2">제목</label>	
-		<input id="input2" type="text" name="video_title" value="${videoVO.video_title }" placeholder="제목">
-		<label for="input3">방송일</label>
-		<input id="input3" type="date" name="video_date"  value="${videoVO.video_date }"
+		
+		<div>
+		<input hidden id="input1" type="text" name="video_bno" value="${videoVO.video_bno }" readonly class="form-control" >
+		
+		<span>제목</span>
+		<input id="input2" type="text" name="video_title" value="${videoVO.video_title }" placeholder="제목" class="form-control" >
+		
+		<span>방송일</span>
+		<input id="input3" type="date" name="video_date"  value="${videoVO.video_date }" class="form-control" 
       			 min="2021-01-01" max="2022-12-31">
-      	<label for="input4">썸네일</label>
+      			 
+      	<span>썸네일</span>
 		<input name="thumbnail" type="file" accept="image/*" class="form-control" 
 					placeholder="썸네일" id="input4" >
-		<label for="input5">영상</label>
+					
+		<span>영상</span>
 		<input name="vod" type="file" accept="video/*" class="form-control" 
 					placeholder="영상" id="input5" >
+					
+					
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		<input type="hidden" name="pageNum" value="${video_Criteria.pageNum }">
 		<input type="hidden" name="amount" value="${video_Criteria.amount }">
@@ -90,7 +116,8 @@
 		<input type="hidden" name="video_vod" value="2">
 		
 
-		<input type="submit" />
+		<input hidden type="submit" />
+		</div>
 	</form>
 	
 	

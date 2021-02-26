@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	 body {
-	background-image: url("/resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: cover;
 	}	
 	
@@ -54,7 +54,7 @@
 <body>
 
 <div class="header2">
-        <jsp:include page="/resources/include/main_header.jsp" />
+        <jsp:include page="${root }/resources/include/main_header.jsp" />
     </div>
     <div class="wrapper">  
 
@@ -63,11 +63,11 @@
         </div> 
 
             <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                
+                <jsp:include page="${root }/resources/include/main_nav.jsp" />                
             </div>
         
         <div class="weekday">
-            <jsp:include page="/resources/include/main_dayintro.jsp" />
+            <jsp:include page="${root }/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
@@ -77,21 +77,25 @@
       		
        		<c:if test="${empty failMsg }">
 					<br><h5>회원님의 아이디입니다.</h5>
+					<br>
+					<br>
 					<div id="userid" style="background-color: white; padding: 15px; text-align: center; width: 200px; height: 60px;">
 						<h5>${id }</h5>
 					</div>
-			<span>
-				<a href="/customLogin">로그인하기</a>/
-				<a href="/member/findpw">비밀번호 찾기</a>/
-				<a href="/">메인으로 가기</a>
-			</span>
+			
+					<br>
+					<br>
+				<a href="${root }/customLogin">로그인하기</a> <br/>
+				<a href="${root }/member/findpw">비밀번호 찾기</a> <br/>
+				<a href="${root }/">메인으로 가기</a>
+			
 			</c:if> 
 
 			<div>
 				<c:if test="${not empty failMsg }">
 					<h4>${failMsg }</h4>
 					<h5>메일로 전송된 인증번호를 입력하세요.</h5>
-					<form action="/member/yourid" method="post">
+					<form action="${root }/member/yourid" method="post">
 						<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
 						<input type="hidden" name="serverKey" value="${AuthenticationKey }">
 						<input type="hidden" name="id" value="${id }">
@@ -112,7 +116,7 @@
     </div>
     
     <div class="footer">
-        <jsp:include page="/resources/include/main_footer.jsp" />
+        <jsp:include page="${root }/resources/include/main_footer.jsp" />
     </div>
     
 

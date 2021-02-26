@@ -56,7 +56,8 @@
 		
 	.center_header h2 {
 	text-align: center;	
-	color: pink;	 
+	color: white;
+	font-weight: bold;	 
 	}
 	
 	.menu_button ul{
@@ -68,6 +69,10 @@
 	.menu_button ul li {
 		font-size: 20px;
 		padding: 5px 10px 5px 10px;
+	}
+	
+	.menu_button ul li a {
+		text-decoration: none;
 	}
 	
 	</style>
@@ -83,9 +88,9 @@
 		
 		<div class="menu_button">
 			<ul>
-				<li><a href="${root }/service/register">문의하기</a></li>
+				<li><a href="${root }/service/register" style="color: white">문의하기</a></li>
 				<li>|</li>
-				<li><a href="${root }/service/member"style="color: white;">내 문의 내역</a></li>
+				<li><a href="${root }/service/member"style="color: white;"><strong>내 문의 내역</strong></a></li>
 			</ul>	 
 		</div> 
 </div>	

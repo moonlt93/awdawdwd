@@ -202,6 +202,10 @@ $(document).ready(function() {
 	
 } 
 
+ button {
+	background-color: lightgrey;
+	border-radius: 2px 2px; 
+}
 .check_font {
 	position: absolute;
 	color: red;
@@ -233,6 +237,13 @@ $(document).ready(function() {
 	.focus + span::after {
 		width: 100%;
 	}
+.post2 div {
+	margin-bottom: 10px;
+}
+
+.post2 .input_field {  
+	margin-bottom: 10px;
+}
 </style> 
 <title>Insert title here</title>
 </head> 
@@ -293,15 +304,15 @@ $(document).ready(function() {
 								<small class="check_font" id="email_check"></small>							
 						</div>
 							
-			<div class="post" style="display: flex; "> 
+			<div class="post" style="display: flex; justify-content: space-between; margin-bottom: 20px;"> 
 					<div class="input_field" style="border-radius: 0px; width: 90px;">
-						<label>우편 번호<br></label> 
+						<span><i class="fa fa-map-marker"></i>주소</span>
 						<input type="text" class="add1" name="add1" id="sample6_postcode"
 							 readonly style="width:100px; text-align:center"> 				
 					</div>	
 												
-					<div class="input_button" style="border-radius: 0px;"> 
-						<button style="height: 40px; width: 120px; padding:0px;" class="postCode"
+					<div class="input_button"> 
+						<button style="height: 30px; width: 140px;  padding:0px 10px 0px 10px;" class="postCode"
 						 type="button"
 							onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 						우편번호 찾기</button>
@@ -316,10 +327,10 @@ $(document).ready(function() {
 			
 				<div class="">
 					<div class="input_field" style="border-radius: 0px;">
-						<label><i class="fa fa-map-marker"></i>주소<br>
+					
 						<input type="text" class="add2" name="add2" id="sample6_address"
 							readonly>
-						</label>
+					
 					</div>				
 				</div> 
 						
@@ -335,16 +346,16 @@ $(document).ready(function() {
 					
 				<div class="">
 					<div class="input_field" style="border-radius: 0px;">
-						<label><i class="fa fa-map-marker"></i>상세주소<br>
+						<span><i class="fa fa-map-marker"></i>상세주소</span>
 						<input type="text" class="add3" name="add3"
 							id="sample6_detailAddress" readonly>
-						</label> 
+						 
 					</div>						
 				</div>
 					 
-																						
+							 															
 			
-		<button id="insertCustomer" type="button" onclick="checkAll()" value="회원가입">회원가입</button>
+		<button style="margin-top: 10px; background-color: lightslategrey; width: 100%; height: 30px; border-radius: 2px 2px;" id="insertCustomer" type="button" onclick="checkAll()" value="회원가입">회원가입</button>
 				
 	</form> 		 
 	</div>

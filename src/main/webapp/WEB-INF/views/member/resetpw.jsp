@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: contain;
 	}	
 	
@@ -42,26 +42,22 @@
     <div class="wrapper">  
 
         <div class="header">
-            <h1><a class="moon" href="${root }">Moon's radio</a></h1>
+            <h1><a class="moon" href="${root }/">Moon's radio</a></h1>
         </div> 
 
             <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                
+                <jsp:include page="${root }/resources/include/main_nav.jsp" />                
             </div>
 
-        <div class="corner">     
-             <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div> 
-        
         
         <div class="weekday">
-            <jsp:include page="/resources/include/main_dayintro.jsp" />
+            <jsp:include page="${root }/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
        <div class="main" style="padding: 100px">
 			<h1>비밀번호 변경</h1><br><br>
-			<form action="/member/resetpw" method="post">
+			<form action="${root }/member/resetpw" method="post">
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
 						<div class="form-group">
 						  <input readonly type="hidden"  name="id" type="text" class="form-control" value="${id }" id="input-id" style="width: 300px;">
@@ -90,7 +86,7 @@
     </div>
     
     <div class="footer">
-        <jsp:include page="/resources/include/main_footer.jsp" />
+        <jsp:include page="${root }/resources/include/main_footer.jsp" />
     </div>
 
 </body>

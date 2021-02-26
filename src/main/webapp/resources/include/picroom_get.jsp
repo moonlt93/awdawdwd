@@ -125,33 +125,108 @@ $(document).ready(function() {
 	}
 });
 </script>
+<style type="text/css">	
+	body {
+	background-image: url("/resources/pic/background.jpg");
+	background-size: cover; 
+	}
+	.header_title { 
+		border-bottom: 1px silver solid; 
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	}
+	.header_title h6 {
+		margin-left: 10px;	 
+	}  
+	
+	.fmt {
+		padding: 0px 10px 0px 10px;
+		height: 50px;
+		background-color: lightslategrey;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		align-items: center; 
+	}
+	
+	.fmt input {		
+		border-radius: 5px 5px;
+		outline: none;
+		border: none;
+		background-color: lightslategrey;
+	}
+	.title_input input {
+		color: white;
+		font-weight: bold;
+	}
+	.pic {
+		margin-bottom: 20px;
+	}
+	.con textarea {
+		border: none;
+		outline: none;
+		background-color: snow;
+		text-align: center;
+		resize: none;
+	}
+	.sub_btn {
+		background-color: lightgrey;
+		color: snow;
+		padding: 2px 4px 2px 4px;
+		border-radius: 3px;
+		height: 27px;
+		margin-right: 5px;
+		margin-bottom: 10px;
+	}
+	
+	.sub_btn:hover {
+		color: grey;
+	}
+	
+	.list_btn {
+		background-color: lightslategrey;
+		padding: 2px 4px 2px 4px;
+		border-radius: 3px; 
+		height: 27px;
+		color: white;
+	}
+	
+	.list_btn:hover {
+		text-decoration: none;
+		color: white;
+	}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
+<div class="header_title" style="border-radius: 0px;">
+<h6>사진방</h6>
+</div>
 <div class="container-fluid">
 <form id="pictureRoom-form1" action="${root }/picroom/register" method="post" enctype="multipart/form-data">
 <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/> 
-   <div class="form-group">
-    <label for="pictureRoom-textarea1">등록일</label>
-    <fmt:formatDate pattern="yyyy-MM-dd" 
+   
+   <div class="fmt" style="display: flex; justify-content: space-between;">
+   		<div class="title_input">
+    		<input readonly name="title" value="${vo.title }" type="text">
+   		</div>
+   		<div>
+    		<fmt:formatDate pattern="yyyy-MM-dd" 
               value="${vo.regdate }" />
+   		</div>
    </div>
- 
-  <div class="form-group">
-    <label for="pictureRoom-input1">제목</label>
-    <input readonly name="title" value="${vo.title }" type="text" class="form-control" id="pictureRoom-input1">
-  </div>
-  <div class="form-group">
-    <label for="pictureRoom-textarea1">내용</label>
-    <textarea readonly name="content" class="form-control" id="pictureRoom-textarea1" rows="3"><c:out value="${vo.content }" /></textarea>
-  </div>
-   <div class="form-group">
+ 	
+  <div class="pic" style="justify-content: center;">
 	<img class="img-fluid" src="${picRoomStaticPath}${vo.fileName}" />
   </div>
+ 
+  <div class="con">
+    <textarea readonly name="content" id="pictureRoom-textarea1" rows="5"><c:out value="${vo.content }" /></textarea>
+  </div>
+  
    
   
   <div id="pictureRoom-file1" class="form-group">
-    <label for="pictureRoom-file1">사진</label>
     <input type="file" name="file" accept="image/*" class="form-control-file" id="pictureRoom-file1">
   </div>
   <input type="hidden" name="memberId" value="${vo.memberId }"/>
@@ -159,11 +234,14 @@ $(document).ready(function() {
   
 	  
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
-	  <button id="pictureRoom-modify-btn1" type="button" class="btn btn-primary">수정</button>
-	  <button id="pictureRoom-modify-btn2" type="button" class="btn btn-primary">수정</button>
-	  <button id="pictureRoom-delete-btn1" type="button" class="btn btn-danger">삭제</button>
+	  <button id="pictureRoom-modify-btn1" type="button" class="sub_btn">수정</button>
+	  <button id="pictureRoom-modify-btn2" type="button" class="sub_btn">수정</button>
+	  <button id="pictureRoom-delete-btn1" type="button" class="sub_btn">삭제</button>
 	</sec:authorize>
- 	 <a href="${root }/picroom/list" class="btn btn-primary">목록</a>
+	
+	<div style="float: right; margin-bottom: 10px;">
+ 	 <a href="${root }/picroom/list" class="list_btn">목록</a>
+	</div>
   
 </form>
 </div>

@@ -46,40 +46,116 @@
 	});
 
 </script>
-
+<style type="text/css">
+	.header_title {
+		border-bottom: 1px silver solid;
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	}
+	
+	.header_title h6 {
+		margin-left: 10px;	
+	} 
+	
+	.register_wrapper {
+		margin: 30px 40px 10px 40px;
+	}
+	
+	.tit_input {
+		margin-bottom: 20px;
+	}
+	.tit_input input {
+		outline: none;
+		border: 1px solid silver;
+		
+	}
+	
+	.con_input textarea {
+		resize: none;
+		outline: none;
+		border: 1px silver solid;
+		margin-bottom: 10px;
+		border-radius: 5px 5px;
+	}
+	
+	.mod_btn {
+		background-color: darkgrey;
+		color: snow;
+		padding: 2px 4px 2px 4px;
+		border-radius: 3px;
+		height: 27px;
+		margin-right: 5px;
+	}
+	
+	.mod_btn:hover {
+		border: none;
+		outline: none;
+	}
+	
+	.wri_input {
+		outline: none;
+		border: none;
+		background-color: snow;
+		color: grey;
+	}
+	.tit_input {
+		border-bottom: 1px solid silver;
+		border-radius: 0px;
+		height: 40px;
+		margin-bottom: 20px;
+	}
+	.tit_input input {
+		border-radius: 2px 2px;
+		outline: none;
+	}
+	.tit_content {
+		padding: 20px 100px 20px 100px;  
+		background-color: white;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-radius: 5px 5px;
+	}
+	.wri_input input {
+		border: none;
+		background-color: snow;
+		color: grey;
+		
+	}
+	
+	.wri_input {
+		margin-bottom: 20px;	
+	}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container-sm">
-		<div class="row justify-content-center">
-			<div class="col-lg-12">
-				<h1>게시물 수정하기</h1>
-			</div>
-		</div>	
-			
-		<div class="row justify-content-center">
-			<div class="col-lg-12">	
+<div class="header_title">
+<h6>요일코너</h6>
+</div>
+
+<div class="register_wrapper">
 		
 				<form id="modifyForm" action="${root }/board/modify" method="post">
-					<div class="form-group">
-								<label for="input3">번호</label>
-								<input class="form-control" name="board_bno" type="text" id="input3" readonly value="${boardVO.board_bno }" />
-					</div>
-							
-					<div class="form-group">
-						<label for="input1">제목</label> <input value='<c:out value="${boardVO.board_title}" />' type="text"
+				<div class="tit_content">
+					<div class="tit_input">
+								<input hidden class="form-control" name="board_bno" type="text" id="input3" readonly value="${boardVO.board_bno }" />
+								<input value='<c:out value="${boardVO.board_title}" />' type="text"
 									name="board_title" class="form-control" id="input1" >
 					</div>
-		
-					<div class="form-group">
-							<label for="textarea1">내용</label>
-							<textarea class="form-control" id="textarea1" name="board_content"
-									rows="3"><c:out value="${boardVO.board_content}" /></textarea>
+						
+					<div class="con_input">
+							<textarea id="textarea1" name="board_content"
+									cols="10" rows="10"><c:out value="${boardVO.board_content}" /></textarea>
 					</div>
+				</div>
 					
-					<div class="form-group">
-						<label for="input2">작성자</label> <input name="board_id" type="text"
-							class="form-control" readonly value='<c:out value="${boardVO.board_id }" />' id="input2" placeholder="이름을 입력하세요.">
+					<div class="wri_input" style="float:right;">
+						<span style="margin-left: 10px;">작성자 :
+						<input name="board_id" type="text"
+							style="border:none;" readonly value='<c:out value="${boardVO.board_id }" />' id="input2" placeholder="이름을 입력하세요.">
+						</span>
 					</div>
 					<input type="hidden" name="pageNum" value="${board_Criteria.pageNum }">
 					<input type="hidden" name="amount" value="${board_Criteria.amount }">
@@ -88,21 +164,22 @@
 					<input type="hidden" name="day" value="${board_Criteria.day }">
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					
-					<input type="submit" />
-					
-					
-					
+					<input type="submit" hidden />				
 				</form>
 				
-				</div>
-				
+
+
+			
+			
+		<div class="btn-group" style="display:flex; justify-content: space-between;">
+			<div>
+	  			<button data-oper="modify" type="button" class="mod_btn">수정하기</button>
 			</div>
-			
-			
-		<div class="btn-group btn-group-lg">
-	  		<button data-oper="modify" type="button" class="btn btn-secondary">수정하기</button>
-	  		<button data-oper="cancel" type="button" class="btn btn-light">취소</button>
+			<div>
+	  			<button data-oper="cancel" type="button" class="mod_btn">취소</button>
+			</div>
 		</div>
+
 </div>
 
 

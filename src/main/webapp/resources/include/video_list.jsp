@@ -88,24 +88,21 @@
 
 <style type="text/css">
 .video-list {
-	margin: 3%;
-	padding: 3%;
+	margin: 30px 40px 30px 40px; 
 }
-
-
-#register-button {	
-	margin-top: 20px;
-	width: 100px;
-}
-
-
-
-
-
-
+ 
 .v_list_wrap{
-	width: 100%;
-	display: inline-block;
+	 border: 1px solid silver;
+	 padding: 10px 30px 10px 30px;
+	 margin-bottom: 20px;
+}
+
+.tit_date {
+	margin-top: 40px;
+	margin-bottom: 30px;
+	border-top: 2px black solid;
+	border-bottom: 1px silver solid;
+	padding: 5px 0px 5px 0px;
 }
 
 .left-tab{
@@ -175,39 +172,77 @@
 		color: lightslategrey;
 	}
 	
+	.header_title {
+		border-bottom: 1px silver solid;
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	}
+	.header_title h6 {
+		margin-left: 10px;	
+	}
+	
+	.video_btn {
+		height: 25px; 
+		padding: 0px 6px 0px 6px;
+		background-color: black;
+		color: snow;
+		border-radius: 3px 3px;
+		font-size: 13px;
+		margin-bottom: 10px;
+		text-align: center;
+		font-weight: bolder;
+	}
+	
+	.video_btn:hover {
+		outline: none;
+	}
+	
+	.reg_btn {
+		float: left;
+		width: 100px; 
+		padding: 0px;
+		background-color: slategrey;
+		border-radius: 3px 3px;
+	}
 </style>
 </head>
 <body>
+<div class="header_title" style="border-radius: 0px;">
+<h6>보이는 라디오</h6>
+</div>
 
 
 
 
 
 <div class="video-list">
-	<h3>보이는 라디오</h3>
-	
-	
 	<!-- 게시판 -->
 	<div class="v_list_wrap">
-		<ol class="list-group">
+		<ol class="list-group" style="list-style:none;">
 			<c:forEach items="${list }" var="videoVO">
-				<li class="list-group-item list-group-item-dark">
-					<c:out value="${videoVO.video_title }"/>
+				<li class="tit_date" style="display: flex; justify-content: space-between;">
+					<div>
+						<span><c:out value="${videoVO.video_title }"/></span>
+					</div>
+					<div>
+						<span><c:out value="${videoVO.video_date }"/></span>
+					</div>
 				</li>
-				
-				<li class="list-group-item list-group-item-dark">
-					<c:out value="${videoVO.video_date }"/>
-				</li>
-				<li class="list-group-item list-group-item-dark">
-					<img alt="" class="img-fluid" src="${BoardStaticPath}${videoVO.video_thumbnail}">
-					<button type="button" class="btn btn-secondary" 
+				<li class="" style="display: flex; justify-content: space-around; align-items:center;">
+					<div>
+					<img width="300" class="" src="${BoardStaticPath}${videoVO.video_thumbnail}">
+					</div>
+					<div> 
+					<button type="button" class="video_btn" 
 						data-oper="review" value="${videoVO.video_bno }">다시보기</button>
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">		
-					<button type="button" class="btn btn-light" 
+					<button type="button" class="video_btn" 
 						data-oper="delete" value="${videoVO.video_bno }" >삭제하기</button>
 					</sec:authorize>	
-				</li>
-			</c:forEach>
+					</div>
+				</li>	
+			</c:forEach> 
 		</ol>
 		
 		
@@ -247,7 +282,7 @@
 	<!-- 페이지이동버튼 -->
 	<div id="register-button">
 		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
-		<button type="button" data-oper="register" class="btn btn-secondary">작성하기</button>
+		<button type="button" data-oper="register" class="reg_btn">작성하기</button>
 		</sec:authorize>
 	</div>
 	

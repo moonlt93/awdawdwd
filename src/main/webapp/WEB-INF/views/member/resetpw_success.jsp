@@ -16,9 +16,9 @@
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<<style type="text/css">
+<style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: contain;
 	}	
 	
@@ -35,12 +35,10 @@
 </style>
 </head>
 <body>
-<div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-            &nbsp; <a href="/customLogin" style="text-decoration: none; color:white; align-items: center; display: flex;">로그인(임시임시얍!)</a>
-        </nav>
+	<div class="header2">
+ 		<jsp:include page="${root }/resources/include/main_header.jsp" /> 
     </div>
+    
     <div class="wrapper">  
 
         <div class="header">
@@ -48,22 +46,23 @@
         </div> 
 
             <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                
+                <jsp:include page="${root }/resources/include/main_nav.jsp" />                
             </div>
-
-        <div class="corner">     
-             <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div> 
-        
         
         <div class="weekday">
-            <jsp:include page="/resources/include/main_dayintro.jsp" />
+            <jsp:include page="${root }/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
        <div class="main" style="padding: 100px">
        
 			<h1>${success }</h1>
+				<span>
+				<a href="${root }/customLogin">로그인하기</a> /
+				<a href="${root }/member/findpw">비밀번호 찾기</a> /
+				<a href="${root }/">메인으로 가기</a>
+				</span>
+				
        </div>
        
         <div class="empty1">
@@ -72,10 +71,8 @@
         
     </div>
     
-    <div class="footer">
-        <footer>
-            footer
-        </footer>
+   <div class="footer">
+        <jsp:include page="${root }/resources/include/main_footer.jsp" />
     </div>
 
 </body>

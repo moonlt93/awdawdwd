@@ -19,7 +19,7 @@
  
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: contain;
 	}	
 
@@ -145,7 +145,7 @@
 <body>
 
 	<div class="header2">
-        <jsp:include page="/resources/include/main_header.jsp" /> 
+        <jsp:include page="${root }/resources/include/main_header.jsp" /> 
     </div>
     
     <div class="wrapper">  
@@ -155,11 +155,11 @@
         </div> 
 
         <div class="nav">
-              <jsp:include page="/resources/include/main_nav.jsp" />                  
+              <jsp:include page="${root }/resources/include/main_nav.jsp" />                  
         </div>
         				
        <div class="main">
-       		<jsp:include page="/resources/include/member_register.jsp" />
+       		<jsp:include page="${root }/resources/include/member_register.jsp" />
        </div>
        
        <div class="empty1">
@@ -169,7 +169,7 @@
     </div>
     
     <div class="footer">
-        <jsp:include page="/resources/include/main_footer.jsp" />
+        <jsp:include page="${root }/resources/include/main_footer.jsp" />
     </div>
     
 

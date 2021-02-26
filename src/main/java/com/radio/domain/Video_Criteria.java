@@ -8,7 +8,7 @@ public class Video_Criteria {
 	private int amount;
 	
 	public Video_Criteria() {
-		this(1,5);
+		this(1,2);
 	}
 	
 	public Video_Criteria(int pageNum, int amount) {

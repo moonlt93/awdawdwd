@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	body {
-	background-image: url("../resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: contain;
 	}	
 	
@@ -72,7 +72,7 @@
 <body>
 
 	<div class="header2">
-        <jsp:include page="/resources/include/main_header.jsp" /> 
+        <jsp:include page="${root }/resources/include/main_header.jsp" /> 
     </div>
     <div class="wrapper">  
 
@@ -81,11 +81,11 @@
         </div> 
 
             <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                
+                <jsp:include page="${root }/resources/include/main_nav.jsp" />                
             </div>
         
         <div class="weekday">
-            <jsp:include page="/resources/include/main_dayintro.jsp" />
+            <jsp:include page="${root }/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
@@ -116,7 +116,7 @@
     </div>
     
     <div class="footer">
-        <jsp:include page="/resources/include/main_footer.jsp" />
+        <jsp:include page="${root }/resources/include/main_footer.jsp" />
     </div>
     
 

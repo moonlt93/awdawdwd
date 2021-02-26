@@ -205,8 +205,8 @@ var csrfTokenValue = "${_csrf.token}";
 	});
 </script>
 <style type="text/css">
-	 body {
-	background-image: url("/resources/pic/background.jpg");
+	body {
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: cover;
 	}	
 	

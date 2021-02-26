@@ -48,17 +48,62 @@ $(document).ready(function(){
 		margin: 0;
 		padding: 0;
 	}
-	.read_form {
-		padding: 50px 100px 50px 100px;
+	.read_form {		
+		padding: 3%;
+		margin: 3%;
 	}
-	.read_form div {
-		padding: 0;
-	}
-	.read_header{
+	
+	.center_header { 
 		
 	}
-	.reply_form {
-		border-radius: 0px;
+		
+	.center_header h2 {
+		text-align: center;		
+		color: white;
+		font-weight: bold;
+	}
+	
+	.menu_button ul{
+		list-style: none;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.menu_button ul li {
+		font-size: 20px;
+		padding: 5px 10px 5px 10px;
+	}
+	
+
+	.center_input {	
+		margin-top: 50px;
+		background-color: snow; 
+	}	 
+	.form_list{
+ 		display: flex; 
+ 		margin: 30px 0px 30px 0px;
+ 		padding: 0px 0px 10px 0px;		
+ 	}
+	.label {
+		color: black;
+		text-align: center;
+		width: 100px;
+		font-weight: bold; 
+	} 
+	.input input {
+		border: 1px solid grey;
+		outline: none; 
+		height: 40px;
+		background-color: lightgrey;
+		width: 500px;
+		padding-left: 10px;
+		border-radius: 2px 2px;
+		margin-bottom: 5px;
+	} 
+	
+	.inquiry_form {
+		list-style: none;
+		padding-left: 50px;
 	}
 	.btn_list_delete {
 		width: 100px;
@@ -66,65 +111,149 @@ $(document).ready(function(){
 		border-radius: 5px;
 		background-color: lightsgrey;
 	}
+	
+	.rep_txt {
+		width: 100%;
+		resize: none;
+		outline: none;
+		border: 1px silver solid;
+		border-radius: 2px 2px;
+	}
+	
+	.inquiryTxt {
+		width: 800px;
+		outline: none; 
+		resize: none;
+	}
+	
+	.reply_form {
+		margin: 0px 70px 0px 70px;
+	}
 </style>
 </head>
 <body>
 
-	<div class="read_form">
-		<div class="read_header">
-			<div>
-			${CenterVO.center_type } 
-			</div>
-			<div>
-			${CenterVO.member_id }
-			</div>
-			<div>
-			${CenterVO.center_name }
-			</div>
-		</div>
+ 
+<div>
+<div class="read_form">
 	
-		<div class="read_content">
-			<div>
-			${CenterVO.center_title }
-			</div>
-			<div>
-			${CenterVO.center_content }
-			</div>
-			<div>
-			${CenterVO.center_regdate }
-			</div>
-		</div>
+<div style="padding: 20px 15px 10px 15px; background-color: lightslategrey">
+	<div class="center_header" style="border-radius: 0px;">
+			<h2>문의 내역</h2>
+		</div>	
+
+</div>	
+	<form action="${root }/service/register" method="post" id="serviceForm">
+		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+		<div class="center_input">
+			<ul class="inquiry_form">
+				<li class="form_list">
+				<div class="label">
+					<label for="userID">
+						<span>아이디</span>
+					</label>
+				</div>
+				<div class="input">
+					<input id="userID" type="text" name="member_id" value="${CenterVO.member_id }"/>			
+				</div>	
+				</li>
+			
+				<li class="form_list">
+				<div class="label">
+					<label for="userName">
+						<span>이름</span>
+					</label>
+				</div>
+				<div class="input">
+					<input id="userName" type="text" name="center_name" value="${CenterVO.center_name }"/>
+				</div>
+				</li>
+			
+				<li class="form_list">
+				<div class="label">
+					<label for="userEmail">
+						<span>이메일</span>
+					</label>
+				</div>
+				<div class="input">
+					<input type="text" name="center_email" value="${CenterVO.center_email }" /> 
+				</div>
+				</li>
+			
+				<li class="form_list">
+				<div class="label">	
+					<label>
+					<span>문의 유형</span>
+					</label>		
+				</div>
+				<div class="input">
+					<input type="text" name="center_type" value="${CenterVO.center_type }">
+				</div>
+				</li>
+				
+			
+				<li class="form_list">
+				<div class="label">
+					<label for="inquiryTitle">
+						<span>제목</span>
+					</label>
+				</div>
+				<div class="input">
+					<input id="inquiryTitle" type="text" name="center_title" value="${CenterVO.center_title }">
+				</div>				
+				</li>
+			
+				<li class="form_list">
+				<div class="label">
+					<label for="inquiryTxt">
+						<span>내용</span>
+					</label>
+				</div>
+				<div class="input">
+					<textarea cols="30" rows="10" class="inquiryTxt" style="border: 1px solid grey;;" name="center_content">${CenterVO.center_content }</textarea> 
+				</div>
+				</li>
+			</ul> 
+			
+		</div>	
+	</form>	
+			
+</div>
 		
-		
-			<div class="reply_form" style="padding:0px 0px 40px 0px; background-color: grey;">
+		<div class="reply_form">
+			<div class="reply_form_header" style="padding:0px 0px 40px 0px; background-color: rgb(241, 241, 241); border-radius: 0px; border-top: solid 1px silver;s">
+				<strong>문의 답변</strong>
 			</div>
-			<div class="reply_form" style="height:80px; margin:0px 0px 20px 0px; border: 1px solid silver;  border-top: none;">			
+			<div class="reply_form_body" style="height:150px; margin:0px 0px 20px 0px; border: 1px solid silver;  border:none; border-bottom: 1px solid silver; border-radius:0px;">			
 				<p>${CenterVO.center_reply }</p>	
 			
 			</div>
-	
-	
+			
+				
 		<div class="btn_group">
 			<ul style="list-style: none; display: flex; justify-content: space-between;">
 			<li><button id="delete_btn" class="btn_list_delete" type="button">삭제하기</button></li>
 			<li><button class="btn_list_delete" type="button">목록으로</button></li>
 			</ul>
 		</div>
+		</div>
+	
 
-	</div>
-	
-	
-	
+			
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
 	<div class="reply_form">
 		<form id="reply_form" action="/service/com_register" method="post">
 			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">	
 			<input type="hidden" name="center_bno" value="${CenterVO.center_bno }">
-			<input type="text" name="center_reply">	
+			<textarea cols="10" rows="5" class="rep_txt" name="center_reply"></textarea>	
 			<button id="com_reply" type="button">답글</button>
 		</form>
 	</div>
 	</sec:authorize>
+</div>
+	
+	
+
 	
 	
 	

@@ -42,12 +42,12 @@
 </head>
 <body>
 	 <div class="nav-flex">               
+          <a class="nav-menu" href="${root}/board/dayintro">요일코너소개</a>
           <a class="nav-menu" href="${root}/mini/list">mini메시지</a>
           <a class="nav-menu" href="${root}/playlist/play">선곡표</a>
-          <a class="nav-menu" href="${root}/board/dayintro">코너소개</a>
+          <a class="nav-menu" href="${root}/video/video_list">보이는라디오</a>
           <a class="nav-menu" href="${root}/replay/list">다시듣기</a>                  
-          <a class="nav-menu" href="${root}/picroom/list">사진방</a>
-           <a class="nav-menu" href="${root}/video/video_list">보이는라디오</a>
-             </div>   
+          <a class="nav-menu" href="${root}/picroom/list">사진방</a>                  
+     </div>   
 </body>
 </html>

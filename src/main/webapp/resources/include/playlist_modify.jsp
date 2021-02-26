@@ -40,7 +40,7 @@ var bno = $
 		outline: none;
 		border-bottom: 1px solid silver;
 		height: 40px;
-		text-align: center;
+		
 		width: 500px;
 		margin-bottom: 10px;
 	}
@@ -53,8 +53,8 @@ var bno = $
 		margin-top: 20px;
 		margin-bottom: 20px;
 		border-radius: 5px 5px;
-		width: 500px;
-		text-align: center;
+		width: 500px; 
+		
 	}
 	
 	.content_txt::-webkit-scrollbar { 
@@ -123,7 +123,7 @@ var bno = $
 				</div>
 
 					<div class="content_input">						
-						<textarea name="content" class="content_txt" cols="10" rows="10">
+						<textarea wrap="hard" name="content" class="content_txt" cols="10" rows="10">
 						<c:out value="${board.content }" />
 						</textarea>
 					</div>

@@ -36,7 +36,7 @@ document.getElementById('sysdate').innerHTML = locale();
     }
 
 	body {
-	background-image: url("resources/pic/background.jpg");
+	background-image: url("${root}/resources/pic/background.jpg");
 	background-size: cover; 
 	}
 	
@@ -241,6 +241,7 @@ document.getElementById('sysdate').innerHTML = locale();
    
    .description {
    		padding-left: 20px;
+   		margin-bottm: 10px;
    }
    
    .evlist i {

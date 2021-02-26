@@ -91,7 +91,7 @@ public class VideoServiceImpl implements VideoService{
 	@Override
 	public void transfer(MultipartFile file, String fileName) throws Exception {
 			String profile = "DEFAULT";
-
+			
 			String objectName = file.getOriginalFilename();
 			
 			if (fileName != null) {

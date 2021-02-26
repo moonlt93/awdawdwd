@@ -41,7 +41,7 @@ $(document).ready(function() {
 	        beforeSend : function(xhr)
             {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
 				xhr.setRequestHeader('${_csrf.headerName}', '${_csrf.token}');
-            }
+            } 
 		 })
 		 .done(function(data) {
 			console.log("성공");
@@ -58,28 +58,106 @@ $(document).ready(function() {
 	});
 });
 </script>
+<style type="text/css">
+	.header_title { 
+		border-bottom: 1px silver solid; 
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	}
+	.header_title h6 {
+		margin-left: 10px;	 
+	}  
+	
+	.pic_wrapper {
+		margin: 0px 40px 10px 40px;
+		margin-top: 20px; 
+	}
+	.pic_subWrp {
+		padding: 30px 200px 0px 200px;
+		border: 1px solid white;
+		margin: 10px 200px 10px 200px;
+		background-color: white; 
+	}
+	
+	.tit_input {
+		margin-bottom: 20px;
+	}
+	.tit_input input {
+		outline: none;
+		border: 1px solid silver;
+		
+	}
+	
+	.con_input textarea {
+		resize: none;
+		outline: none;
+		border: 1px silver solid;
+		margin-bottom: 10px;
+		text-align: center;
+		border-radius: 5px 5px;
+	}
+	
+	.reg_btn {
+		background-color: lightgrey;
+		color: snow;
+		padding: 2px 4px 2px 4px;
+		border-radius: 3px;
+		height: 27px;
+		margin-right: 5px;
+	}
+	
+	.reg_btn:hover{
+		color: grey;
+	}
+	
+	.tit_input {
+		border-bottom: 1px solid silver;
+		height: 40px;
+		margin-bottom: 20px;
+	}
+	.tit_input input {
+		border: none;
+		outline: none;
+		text-align: center;
+	}
+	.tit_content {
+		padding: 20px 100px 20px 100px;  
+		background-color: white;
+		margin-bottom: 10px;
+		margin-left: 150px;
+		margin-right: 150px;
+		border-radius: 5px 5px;
+	}   
+</style>
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container-fluid">
-<form id="pictureRoom-form1" action="${root }/picroom/register" method="post" enctype="multipart/form-data">
-  <%-- <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/> --%> 
-  <div class="form-group">
-    <label for="pictureRoom-input1">제목</label>
-    <input name="title" type="text" class="form-control" id="pictureRoom-input1">
-  </div>
-  <div class="form-group">
-    <label for="pictureRoom-textarea1">내용</label>
-    <textarea name="content" class="form-control" id="pictureRoom-textarea1" rows="3"></textarea>
-  </div>
-   <div class="form-group">
-    <label for="pictureRoom-file1">사진</label>
-    <input type="file" name="file" accept="image/*" class="form-control-file" id="pictureRoom-file1">
-  </div>
-  <input type="hidden" name="memberId"  value='<sec:authentication property="principal.username"/>' />
-  <button id="pictureRoom-submit-btn1" type="submit" class="btn btn-primary">등록</button>
-</form>
+<div class="header_title" style="border-radius: 0px;">
+<h6>사진방</h6>
 </div>
+<div class="pic_wrapper">
+	
+		<form id="pictureRoom-form1" action="${root }/picroom/register" method="post" enctype="multipart/form-data">
+ 		 <%-- <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/> --%> 
+ 	<div class="tit_content">
+ 		 <div class="tit_input">
+   			 <input name="title" type="text" placeholder="제목을 입력하세요.">
+ 		 </div>  
+ 		  
+ 		 <div class="con_input"> 	
+    		 <textarea wrap="hard" cols="10" rows="10" name="content" placeholder="내용을 입력하세요."></textarea>
+  		</div> 
+   		<div class="">  
+    		 <input type="file" name="file" accept="image/*">
+			<input type="hidden" name="memberId"  value='<sec:authentication property="principal.username"/>' />
+   		</div> 			 
+ 	</div> 
+  			 <button id="pictureRoom-submit-btn1" type="submit" class="reg_btn">등록</button>
+		</form>
+	
+</div>
+
 
 </body>
 </html>

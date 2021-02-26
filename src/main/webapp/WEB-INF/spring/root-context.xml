@@ -55,7 +55,7 @@
 	
 	<!-- 재민 버킷빈 -->
 	<bean id="ociConfigMINPath" class="java.lang.String">
-		<constructor-arg value="/home/opc/oci-min/config"></constructor-arg>
+		<constructor-arg value="/home/opc/oci2/config"></constructor-arg>
 	</bean>
 	
 	<tx:annotation-driven />

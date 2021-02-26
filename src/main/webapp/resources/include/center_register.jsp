@@ -16,6 +16,15 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var serviceForm = $("#serviceForm");
+		$("#sub_btn").click(function() {
+			serviceForm.submit();
+		}); 
+		
+	});
+</script>
 <title>Insert title here</title>
 <style type="text/css">
 	body{
@@ -24,17 +33,16 @@
 	.center_wrapper {
 		margin: 3%;
 		padding: 3%;
-		display: grid;
-		
+		display: grid;	
 	}	 
 	
 	.center_header { 
-		border-bottom: 2px solid snow;
-		
+		border-bottom: 2px solid snow;	
 	}
 	.center_header h2 {
 		text-align: center;		
-		color: pink;
+		color: white;
+		font-weight: bold;
 	}
 	
 	.menu_button ul{
@@ -47,21 +55,60 @@
 		font-size: 20px;
 		padding: 5px 10px 5px 10px;
 	}
+	.menu_button ul li a {
+		text-decoration: none;
+	}
 	.label {
-		color: grey;
+		color: snow;
 		text-align: center;
-		width: 100px; 
+		width: 100px;
+		font-weight: bold; 
 	} 
+	.inquiry_wrapper {
+		
+		margin-top: 50px;
+		background-color: lightslategrey; 
+	}
 	.inquiry_form {
 		list-style: none;
+		padding-left: 50px;
 	}
 	
  	.form_list{
  		display: flex; 
  		margin: 30px 0px 30px 0px;
+ 		padding: 0px 0px 10px 0px;		
  	}
 	
-
+	.input input {
+		border: none;
+		outline: none; 
+		height: 30px;
+		background-color: white;
+		width: 500px;
+		padding-left: 10px;
+	}
+	
+	textarea {
+		width: 800px;
+		outline: none;
+	}
+	
+	.reg_btn {
+		margin-top: 20px; 
+	}
+	.sub_btn {
+		background-color: snow;
+		border: 2px solid lightslategrey;
+		color: lightslategrey;
+		height: 40px;
+		border-radius: 3px 3px;
+	}
+	
+	.sub_btn:hover {
+		color: snow;
+		background-color: lightslategrey;
+	}
 </style>
 </head>
 <body>
@@ -75,14 +122,16 @@
 		
 		<div class="menu_button">
 			<ul>
-				<li><a href="${root }/service/register" style="color: white;">문의하기</a></li>
+				<li><a href="${root }/service/register" style="color: white;"><strong>문의하기</strong></a></li>
 				<li>|</li>
-				<li><a href="${root }/service/member">내 문의 내역</a></li>
+				<li><a href="${root }/service/member" style="color: white;">내 문의 내역</a></li>
 			</ul>	 
 		</div>
 </div>
 	
-	<form action="${root }/service/register" method="post">
+	
+<div class="inquiry_wrapper">
+	<form action="${root }/service/register" method="post" id="serviceForm">
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		<div class="center_input">
 			
@@ -153,18 +202,21 @@
 					</label>
 				</div>
 				<div class="input">
-					<textarea id="inquiryTxt" style="border: none;" name="center_content"></textarea> 
+					<textarea cols="30" rows="10" id="inquiryTxt" style="border: none;" name="center_content"></textarea> 
 				</div>
 				</li>
-			</ul>
+			</ul> 
 			
-			<input class="sub_btn" type="submit" value="문의하기">			
 		</div>	
 	</form>	
-	
+			
+	</div>
+		<div class="reg_btn">
+			<button id="sub_btn" class="sub_btn" type="button">문의하기</button>			
+		</div>
 </div>
 	
 	
 	
 </body>
-</html>
+</html> 
