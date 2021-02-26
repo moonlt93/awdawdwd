@@ -18,9 +18,9 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-	 body {
+	body {
 	background-image: url("../resources/pic/background.jpg");
-	background-size: contain;
+	background-size: cover;
 	}	
 	
 	.nav-menu {
@@ -33,16 +33,46 @@
    .nav-menu:hover {
    	   text-decoration: none;
    }
+   .main {
+   		position: relative; 
+   }
+   .findId {
+   		padding: 60px 40px;
+		background: #f1f1f1;
+		height: 400px;    
+		width: 360px;	 
+		margin: 60px 0px 0px 0px;  
+		position: absolute;  
+		left: 30%; 
+   }
+   
+   .email_input {
+   	margin-top: 20px; 
+   } 
+   
+   .email_input input {
+   		height: 40px;
+   		border-radius: 5px 5px;
+   		outline: none;
+   		border: 1px solid grey; 
+   		margin-bottom: 20px;
+   }
+   .loginBtn {
+   		width: 100%;
+		height: 50px;
+		border: none;
+		color: #fff;
+		outline: none;
+		background-color: lightslategrey;
+		border-radius: 5px 5px;   
+   } 
 </style>
 
 </head>
 <body>
 
-<div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-            &nbsp; <a href="/customLogin" style="text-decoration: none; color:white; align-items: center; display: flex;">로그인(임시임시얍!)</a>
-        </nav>
+	<div class="header2">
+        <jsp:include page="/resources/include/main_header.jsp" />  
     </div>
     <div class="wrapper">  
 
@@ -53,44 +83,42 @@
             <div class="nav">
                 <jsp:include page="/resources/include/main_nav.jsp" />                
             </div>
-
-        <div class="corner">     
-             <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div> 
-        
-        
+  
         <div class="weekday">
             <jsp:include page="/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
        <div class="main" style="padding: 100px;">
-       		<h1>아이디 찾기</h1>
-			<h5>회원가입시 사용한 이메일을 입력해주세요.</h5>
+			<div class="findId">
 			
-			<form action="${root }/member/findid" method="post">
-				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
-				<div class="form-group">
-				    <label for="input-email">이메일</label>
-				    <input name="email" type="email" class="form-control" id="input-email" style="width: 300px;">
-				</div>
-			
+				<form action="${root }/member/findid" method="post">
+						<div class="form_header">
+						<h3>아이디 찾기</h3>
+						<p>회원가입시 사용한 <br> 
+						이메일을 입력해주세요.</p>
+						</div>
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
+					<div class="email_input">
+				   	 	<label for="input-email">이메일</label>
+				    	<input name="email" type="email"id="input-email">
+					</div>		
 				
-				<button id="loginBtn" type="submit" style="margin-top: 20px;">아이디 찾기</button>
-			</form>
+				<button class="loginBtn" type="submit" >아이디 찾기</button>
+				</form>
        </div>
        
         <div class="empty1">
 
         </div>
-        
+       </div>
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
+    
+
     
 
 

@@ -19,8 +19,8 @@
 <title>Insert title here</title>
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: contain;
+	background-image: url("/resources/pic/background.jpg");
+	background-size: cover;
 	}	
 	
 	.nav-menu {
@@ -34,6 +34,19 @@
    	   text-decoration: none;
    }
    
+   .main {
+   		position: relative;
+   }
+   
+   .find_id {
+   		padding: 60px 40px;
+		background: #f1f1f1; 
+		height: 400px;    
+		width: 360px;	 
+		margin: 60px 0px 0px 0px;  
+		position: absolute;  
+		left: 30%; 
+   }
    
 </style>
 </head>
@@ -41,10 +54,7 @@
 <body>
 
 <div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-            &nbsp; <a href="/customLogin" style="text-decoration: none; color:white; align-items: center; display: flex;">로그인(임시임시얍!)</a>
-        </nav>
+        <jsp:include page="/resources/include/main_header.jsp" />
     </div>
     <div class="wrapper">  
 
@@ -55,31 +65,27 @@
             <div class="nav">
                 <jsp:include page="/resources/include/main_nav.jsp" />                
             </div>
-
-        <div class="corner">     
-             <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div> 
-        
         
         <div class="weekday">
             <jsp:include page="/resources/include/main_dayintro.jsp" />
         </div>  
         					
 
-       <div class="main" style="padding: 100px;">
-      		<h1>아이디 찾기</h1>
+       <div class="main">
+       		<div class="find_id">
+      			<h1>아이디 찾기</h1>
       		
        		<c:if test="${empty failMsg }">
-			<br><h5>회원님의 아이디입니다.</h5>
-			<div id="userid" style="background-color: white; padding: 15px; text-align: center; width: 200px; height: 60px;">
-				<h5>${id }</h5>
-			</div>
+					<br><h5>회원님의 아이디입니다.</h5>
+					<div id="userid" style="background-color: white; padding: 15px; text-align: center; width: 200px; height: 60px;">
+						<h5>${id }</h5>
+					</div>
 			<span>
 				<a href="/customLogin">로그인하기</a>/
 				<a href="/member/findpw">비밀번호 찾기</a>/
 				<a href="/">메인으로 가기</a>
 			</span>
-			</c:if>
+			</c:if> 
 
 			<div>
 				<c:if test="${not empty failMsg }">
@@ -90,12 +96,13 @@
 						<input type="hidden" name="serverKey" value="${AuthenticationKey }">
 						<input type="hidden" name="id" value="${id }">
 						<div class="form-group">
-							<input type="text" name="userKey" style="width: 200px;">
+							<input type="text" name="userKey">
 						</div>
-						<button id="loginBtn" type="submit" style="margin-top: 20px;">확인</button>	
+						<button id="loginBtn" type="submit" >확인</button>	
 					</form>
 				</c:if>
 			</div>
+       	</div>
        </div>
        
         <div class="empty1">
@@ -105,9 +112,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

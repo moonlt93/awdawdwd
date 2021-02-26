@@ -40,9 +40,7 @@
 <body>
 
 <div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-        </nav>
+      <jsp:include page="/resources/include/main_header.jsp" /> 
     </div>
     <div class="wrapper">  
 
@@ -54,11 +52,6 @@
                 <jsp:include page="/resources/include/main_nav.jsp" />                
             </div>
 
-        <div class="corner">     
-             <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div> 
-        
-        
         <div class="weekday">
             <jsp:include page="/resources/include/main_dayintro.jsp" />
         </div>  
@@ -75,9 +68,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

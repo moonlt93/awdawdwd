@@ -184,7 +184,7 @@ public class MemberController {
 			int cnt = service.updatePw(id, encodepw);
 
 			if (cnt == 1) {
-				model.addAttribute("success", "비밀번호 변경 성공!!");
+				model.addAttribute("success", "비밀번호 변경 완료");
 				return "/member/resetpw_success";
 			} else {
 				// 유라언니가 한 유효성검사 추가

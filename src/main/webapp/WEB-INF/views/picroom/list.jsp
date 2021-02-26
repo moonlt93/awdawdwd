@@ -143,10 +143,8 @@
 </head>
 <body>
 
-<div class="header2">
-        <nav class="header-nav">
-            <jsp:include page="/resources/include/main_header.jsp" /> 
-        </nav>
+	<div class="header2">
+          <jsp:include page="/resources/include/main_header.jsp" />
     </div>
     <div class="wrapper">  
 
@@ -169,9 +167,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+       <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

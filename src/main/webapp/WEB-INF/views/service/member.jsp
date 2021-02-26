@@ -167,9 +167,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

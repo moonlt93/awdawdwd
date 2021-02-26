@@ -51,12 +51,7 @@
         <div class="nav">
               <jsp:include page="/resources/include/main_nav.jsp" />                   
         </div>
-
-        <div class="corner">     
-              <jsp:include page="/resources/include/main_corner.jsp" /> 
-        </div> 
-        
-        
+   
         <div class="weekday">
             <jsp:include page="/resources/include/main_dayintro.jsp" />
         </div>  
@@ -74,9 +69,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+       <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

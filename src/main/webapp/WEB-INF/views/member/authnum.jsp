@@ -33,6 +33,42 @@
    .nav-menu:hover {
    	   text-decoration: none;
    }
+   
+   .main {
+   		position: relative;
+   }
+   
+   .find_id {
+   		padding: 60px 40px;
+		background: #f1f1f1; 
+		height: 400px;    
+		width: 360px;	 
+		margin: 60px 0px 0px 0px;  
+		position: absolute;  
+		left: 30%; 
+   }
+   
+   .find_input {
+   		margin-top: 20px;
+   }
+   
+   .find_input input {
+   		height: 40px;
+   		border-radius: 5px 5px;
+   		outline: none;
+   		border: 1px solid grey; 
+   		margin-bottom: 20px;
+   }
+   
+   .loginBtn {
+   		width: 100%;
+		height: 50px;
+		border: none;
+		color: #fff;
+		outline: none;
+		background-color: lightslategrey;
+		border-radius: 5px 5px;  
+   }
 </style>
 </head>
 
@@ -40,11 +76,8 @@
 <body>
 
 <div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-            &nbsp; <a href="/customLogin" style="text-decoration: none; color:white; align-items: center; display: flex;">로그인(임시임시얍!)</a>
-        </nav>
-    </div>
+       <jsp:include page="/resources/include/main_header.jsp" />
+</div>
     <div class="wrapper">  
 
         <div class="header">
@@ -54,11 +87,6 @@
             <div class="nav">
                 <jsp:include page="/resources/include/main_nav.jsp" />                
             </div>
-
-        <div class="corner">     
-             <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div> 
-        
         
         <div class="weekday">
             <jsp:include page="/resources/include/main_dayintro.jsp" />
@@ -66,35 +94,37 @@
         					
 
        <div class="main" style="padding: 100px">
-      		<h1>아이디 찾기</h1>
+       	<div class="find_id">
+      		<h3>아이디 찾기</h3>
        		<c:if test="${not empty id }">
-				<h5>메일로 전송된 인증번호를 입력하세요.</h5>
+				<p>메일로 전송된 인증번호를 입력하세요.</p>
 				<form action="/member/yourid" method="post">
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
 					<input type="hidden" name="serverKey" value="${AuthenticationKey }">
 					<input type="hidden" name="id" value="${id }">
-					<div class="form-group">
-						<input type="text" name="userKey" style="width: 200px;">
+					<div class="find_input">
+						<input type="text" name="userKey">
 					</div>
-					<button id="loginBtn" type="submit" style="margin-top: 20px;">확인</button>	
+					<button class="loginBtn" type="submit">확인</button>	
 				</form>
 				</c:if>
 				
 				<c:if test="${empty id }">
 				
-					<h4>일치하는 정보가 없습니다.</h4>
+					<h3>일치하는 정보가 없습니다.</h3>
 					<form action="${root }/member/findid" method="post">
 						<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
-						<div class="form-group">
+						<div class="find_input">
 						    <label for="input-email">이메일</label>
-						    <input name="email" type="email" class="form-control" id="input-email" style="width: 300px;">
+						    <input name="email" type="email" id="input-email">
 						</div>
 					
 						
-						<button id="loginBtn" type="submit" style="margin-top: 20px;">아이디 찾기</button>
+						<button id="loginBtn" type="submit">아이디 찾기</button>
 					</form>
 
 			</c:if>
+       	</div>
        </div>
        
         <div class="empty1">
@@ -104,9 +134,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

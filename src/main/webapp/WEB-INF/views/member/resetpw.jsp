@@ -37,10 +37,7 @@
 </head>
 <body>
 <div class="header2">
-        <nav class="header-nav">
-            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
-            &nbsp; <a href="/customLogin" style="text-decoration: none; color:white; align-items: center; display: flex;">로그인(임시임시얍!)</a>
-        </nav>
+        <jsp:include page="/resources/include/main_header.jsp" /> 
     </div>
     <div class="wrapper">  
 
@@ -93,9 +90,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
 
 </body>

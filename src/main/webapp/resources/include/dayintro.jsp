@@ -94,7 +94,7 @@
 				</div>
 				
 				<div>
-				<a class="day_btn" href="${root }/board/list?day=2">참여하기</a>				
+				<a class="day_btn" href="${root }/board/list?day=1">참여하기</a>				
 				</div>	
 			</div>		
 		</li>
@@ -119,7 +119,7 @@
 				</div>
 				
 					<div>
-						<a class="day_btn" href="${root }/board/list?day=3">참여하기</a>
+						<a class="day_btn" href="${root }/board/list?day=2">참여하기</a>
 					</div>				
 			</div>
 		</li>
@@ -143,7 +143,7 @@
 				</div>
 			
 				<div>
-				<a class="day_btn" href="${root }/board/list?day=4">참여하기</a>
+				<a class="day_btn" href="${root }/board/list?day=3">참여하기</a>
 				</div>
 			</div>				
 		</li>
@@ -169,7 +169,7 @@
 				</div>
 				
 					<div>
-						<a class="day_btn" href="${root }/board/list?day=5">참여하기</a>
+						<a class="day_btn" href="${root }/board/list?day=4">참여하기</a>
 					</div>
 			</div>
 				
@@ -192,7 +192,7 @@
 				</div>
 				
 					<div>
-						<a class="day_btn" href="${root }/board/list?day=6">참여하기</a>
+						<a class="day_btn" href="${root }/board/list?day=5">참여하기</a>
 					</div>
 			</div>
 		</li>
@@ -216,7 +216,7 @@
 				</div>
 				
 				<div>
-				<a class="day_btn" href="${root }/board/list?day=7">참여하기</a>
+				<a class="day_btn" href="${root }/board/list?day=6">참여하기</a>
 				</div>
 			</div>
 		</li>
@@ -238,7 +238,7 @@
 				</div>
 				
 					<div>
-						<a class="day_btn" href="${root }/board/list?day=1">참여하기</a>
+						<a class="day_btn" href="${root }/board/list?day=7">참여하기</a>
 					</div>
 			</div>
 		</li>	

@@ -9,13 +9,14 @@
         grid-gap: 15px;
         height: 100%;
         grid-template-columns: 1fr 300px 300px 300px 300px 1fr ;
-        grid-template-rows:  200px 50px 150px 150px 200px 1fr ; 
+        grid-template-rows:  200px 50px 150px 200px 200px 1fr 200px; 
         grid-template-areas: 'empty2 header header header header empty3'
                              'empty2 nav nav nav nav empty3'
-                             'empty2 corner main main main empty3'
                              'empty2 weekday main main main empty3'
                              'empty2 weekday main main main empty3'
-                             'empty2 empty1 main main main empty3'                            
+                             'empty2 empty1 main main main empty3'
+                             'empty2 empty1 main main main empty3'    
+                             'empty2 empty4 empty4 empty4 empty4 empty3'                      
    }
    .wrapper div {
         border-radius: 5px 5px;      
@@ -30,10 +31,6 @@
     background-color: snow;
     grid-area: nav;
    } 
-   .corner {
-    background-color: snow;
-    grid-area: corner;
-   }
    .weekday {
     background-color: snow;
     grid-area: weekday;
@@ -44,6 +41,15 @@
    }
    .empty1 {
     grid-area: empty1;
+   }
+   .empty2 {
+   	grid-area: empty2;
+   }
+   .empty3 {
+   	grid-area: empty3;
+   }
+   .empty4 {
+   	grid-area: empty4;
    }
    .moon {
    	text-decoration: none;
