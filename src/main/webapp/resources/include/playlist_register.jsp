@@ -94,7 +94,7 @@
 </div>
 
 	<div class="register_wrapper">
-				<form method="post" action="/playlist/register"> 
+				<form method="post" action="${root}/playlist/register"> 
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 					
 				<div class="tit_content">

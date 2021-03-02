@@ -165,8 +165,9 @@ th, tr {
 						
 							<td style="text-align: center; color: grey;"><fmt:formatDate
 									pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
-							<td class="tx" style="text-align: center;"><c:url
-									value="${root }/playlist/get" var="boardLink">
+							<td class="tx" style="text-align: center;">
+							<c:url
+									value="/playlist/get" var="boardLink">
 									<c:param value="${board.bno }" name="bno" />
 									<c:param value="${board.writer }" name="id" />
 									<c:param value="${pageMaker.cri.pageNum }" name="pageNum" />
@@ -196,7 +197,7 @@ th, tr {
 	<div class="page_nav">		
 		  <ul class="nav_ul">		  
 		  	<c:if test="${pageMaker.prev }">
-		  		<c:url value="${root }/playlist/play" var="prevLink">
+		  		<c:url value="/playlist/play" var="prevLink">
 		  			<c:param value="${pageMaker.startPage -1 }" name="pageNum" />
 		  			<c:param value="${pageMaker.cri.amount }" name="amount" />
 		  			<c:param name="type" value="${pageMaker.cri.type }"/>
@@ -210,7 +211,7 @@ th, tr {
 		    
 		    <c:forEach var="num" begin="${pageMaker.startPage }"
 		    					 end="${pageMaker.endPage }">
-		    	<c:url value="${root }/playlist/play" var="pageLink" >
+		    	<c:url value="/playlist/play" var="pageLink" >
 		    		<c:param name="pageNum" value="${num }" />
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
 		    		<c:param name="type" value="${pageMaker.cri.type }"/>
@@ -223,7 +224,7 @@ th, tr {
 		    </c:forEach>
 		    
 		    <c:if test="${pageMaker.next }">
-		    	<c:url value="${root }/playlist/play" var="nextLink">
+		    	<c:url value="/playlist/play" var="nextLink">
 		    		<c:param name="pageNum" value="${pageMaker.endPage +1 }"/>
 		    		<c:param name="amount" value="${pageMaker.cri.amount }" />
 		    		<c:param name="type" value="${pageMaker.cri.type }"/>
